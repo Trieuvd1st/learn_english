@@ -14,9 +14,9 @@
         android:text="Chào ông(buổi tối)"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:padding="@dimen/spacing_tiny"/>
+        android:padding="@dimen/spacing_small"/>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clEn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +50,6 @@
             android:layout_marginEnd="@dimen/spacing_tiny"
             android:layout_marginRight="@dimen/spacing_tiny"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

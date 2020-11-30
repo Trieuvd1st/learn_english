@@ -2,12 +2,13 @@ package com.example.learnenglish.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.learnenglish.listener.OnQuestionCallbackAlphabet;
 import com.example.learnenglish.model.Alphabet;

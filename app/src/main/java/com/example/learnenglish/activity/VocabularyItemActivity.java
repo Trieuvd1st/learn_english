@@ -2,13 +2,14 @@ package com.example.learnenglish.activity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.annotation.RawRes;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.RawRes;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learnenglish.adapter.VocabularyItemAdapter;
 import com.example.learnenglish.database.VocabularyDatabase;

@@ -23,8 +23,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.0.2'
+    /*implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
@@ -32,13 +32,35 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.facebook.android:facebook-share:[4,5)'
+    implementation 'com.android.support:cardview-v7:28.0.0'*/
+
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation "junit:junit:$rootProject.junit_version"
+    implementation "com.android.support:multidex:$rootProject.multidex_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.test_runner_version"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espresso_version"
 
     /*UI Libraries*/
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "androidx.appcompat:appcompat:$rootProject.appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_layout_version"
     implementation "com.google.android.material:material:$rootProject.marterial_version"
+
+    /*Android architectures libraries*/
+    implementation "android.arch.navigation:navigation-fragment:$rootProject.arch_navigation_version"
+    implementation "android.arch.navigation:navigation-ui:$rootProject.arch_navigation_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.arch_navigation_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.arch_navigation_version"
+    implementation "android.arch.lifecycle:extensions:$rootProject.arch_room_version"
+    implementation "android.arch.persistence.room:runtime:$rootProject.arch_room_version"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.arch_room_version"
+    implementation "android.arch.work:work-runtime:$rootProject.work_manager_version"
+    kapt "android.arch.persistence.room:compiler:$rootProject.arch_room_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_ktx_version"
 
 
 }
