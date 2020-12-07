@@ -1,6 +1,8 @@
 package com.example.learnenglish.model
 
-class Communication {
+import java.io.Serializable
+
+class Communication : Serializable {
     var id: Int = 0
 
     var topicId: Int = 0
@@ -14,4 +16,11 @@ class Communication {
     var isExpand: Boolean = false
 
     var isSelected: Boolean = false
+
+    fun convertSelection(value: Int): Boolean {
+        return when (value) {
+            0 -> false
+            else -> true
+        }
+    }
 }
