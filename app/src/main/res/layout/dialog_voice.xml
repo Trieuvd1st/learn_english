@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/spacing_tiny"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/ivSpeaker"
+        android:layout_width="@dimen/icon_size_small"
+        android:layout_height="@dimen/icon_size_small"
+        android:src="@drawable/ic_speaker"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/ivSpeaker"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Certaily"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/spacing_tiny"/>
+
+    <TextView
+        android:id="@+id/mesHD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#F68F5E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:text="Nhấn giữ mic để nói"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mesHD"
+        android:text="Chưa đúng. Mời thử lại"
+        android:textColor="@color/red_bright"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/ivVoice"
+        android:layout_width="@dimen/icon_size_huge"
+        android:layout_height="@dimen/icon_size_huge"
+        android:src="@drawable/ic_mic_no_active"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvResult"
+        android:layout_marginTop="@dimen/spacing_tiny"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="@dimen/spacing_giant"
+        android:layout_height="@dimen/spacing_large"
+        android:background="@color/gray_10"
+        android:textAllCaps="false"
+        android:text="Đóng"
+        app:layout_constraintTop_toBottomOf="@id/ivVoice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/spacing_tiny"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

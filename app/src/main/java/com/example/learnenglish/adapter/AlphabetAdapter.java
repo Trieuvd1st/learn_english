@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.example.learnenglish.listener.OnQuestionCallbackAlphabet;
 import com.example.learnenglish.model.Alphabet;
 import com.example.learnenglish.R;
