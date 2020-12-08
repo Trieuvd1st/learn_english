@@ -81,8 +81,8 @@ class VoiceDialog(context: Context, val comm: Communication): Dialog(context) {
                 ivVoice.setImageResource(R.drawable.ic_mic_no_active)
                 val data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 tvResult.visibility = View.VISIBLE
-                Log.d("DETECT_VOICE_TO_TEXT", data!![0])
-                if (data[0]!!.equals(comm.enSentence.substring(comm.enSentence.length - 1), ignoreCase = true)) {
+                Log.d("DETECT_VOICE_TO_TEXT", "${data!![0]}, ${comm.enSentence.substring(0, comm.enSentence.length - 1)}")
+                if (data[0].equals(comm.enSentence.substring(0, comm.enSentence.length - 1), ignoreCase = true)) {
                     tvResult.text = "Chính xác"
                     tvResult.setTextColor(ContextCompat.getColor(context, R.color.blue_dark))
                 } else {

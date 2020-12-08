@@ -27,14 +27,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TestDoneActivity" />
-        <activity android:name=".activity.ScreenSlidePagerActivity" />
-        <activity android:name=".activity.VocabularyActivity"/>
-        <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.CommunicationTopicActivity"/>
-        <activity android:name=".activity.CommunicationActivity"/>
-        <activity android:name=".activity.VocabularyItemActivity"/>
-        <activity android:name=".activity.CommTestActivity"/>
+        <activity
+            android:name=".activity.TestDoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ScreenSlidePagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.VocabularyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CommunicationTopicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CommunicationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.VocabularyItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CommTestActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

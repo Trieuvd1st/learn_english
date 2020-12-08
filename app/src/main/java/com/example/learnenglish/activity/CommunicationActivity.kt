@@ -14,6 +14,7 @@ import com.example.learnenglish.dialog.VoiceDialog
 import com.example.learnenglish.model.Communication
 import kotlinx.android.synthetic.main.activity_communication.*
 import pub.devrel.easypermissions.EasyPermissions
+import kotlin.random.Random
 
 class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPermissions.PermissionCallbacks {
 
@@ -24,6 +25,8 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communication)
+
+        Log.d("RANDOM_TEST", "${Random.nextInt(0, 10)}")
 
         //read data
         val topicIdReceive = intent.getIntExtra(TOPIC_ID_EXTRA, 0)

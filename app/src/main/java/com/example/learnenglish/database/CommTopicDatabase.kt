@@ -23,5 +23,4 @@ class CommTopicDatabase(context: Context) : DBHelper(context) {
         db.closeDatabase()
         return commTopicArrayList as ArrayList<CommTopic>
     }
-
 }

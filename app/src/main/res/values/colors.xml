@@ -38,4 +38,6 @@
     <color name="amber_500">#ffc107</color>
     <color name="amber_300">#ffd54f</color>
     <color name="amber_100">#ffecb3</color>
+
+    <color name="orange">#F68F5E</color>
 </resources>

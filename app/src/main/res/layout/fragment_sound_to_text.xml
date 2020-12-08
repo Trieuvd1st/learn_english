@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_small">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chọn nghĩa đúng cho câu này"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivSpeaker"
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_speaker" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnDA1"
+        style="@style/ButtonAnswer"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:text="Good Luck." />
+
+    <TextView
+        android:id="@+id/btnDA2"
+        style="@style/ButtonAnswer"
+        android:text="Good Luck." />
+
+    <TextView
+        android:id="@+id/btnDA3"
+        style="@style/ButtonAnswer"
+        android:text="Good Luck." />
+
+    <TextView
+        android:id="@+id/btnDA4"
+        style="@style/ButtonAnswer"
+        android:text="Good Luck." />
+
+</LinearLayout>

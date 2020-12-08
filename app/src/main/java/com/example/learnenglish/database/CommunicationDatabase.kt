@@ -2,7 +2,6 @@ package com.example.learnenglish.database
 
 import android.content.Context
 import com.example.learnenglish.model.Communication
-import java.util.*
 
 class CommunicationDatabase(context: Context?) : DBHelper(context) {
     private var context: Context? = null
