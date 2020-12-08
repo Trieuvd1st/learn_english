@@ -34,6 +34,7 @@
         <activity android:name=".activity.CommunicationTopicActivity"/>
         <activity android:name=".activity.CommunicationActivity"/>
         <activity android:name=".activity.VocabularyItemActivity"/>
+        <activity android:name=".activity.CommTestActivity"/>
     </application>
 
 </manifest>

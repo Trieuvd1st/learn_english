@@ -7,13 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learnenglish.R
-import com.example.learnenglish.dialog.VoiceDialog
 import com.example.learnenglish.model.Communication
-import kotlinx.android.synthetic.main.item_communication.*
 import kotlinx.android.synthetic.main.item_communication.view.*
 
-class ComminicationAdapter(private var listCommunication: MutableList<Communication>) :
-        RecyclerView.Adapter<ComminicationAdapter.ViewHolder>() {
+class CommunicationAdapter(private var listCommunication: MutableList<Communication>) :
+        RecyclerView.Adapter<CommunicationAdapter.ViewHolder>() {
 
     private var listener: CommunicationAdapterListener? = null
 
@@ -37,11 +35,11 @@ class ComminicationAdapter(private var listCommunication: MutableList<Communicat
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComminicationAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommunicationAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_communication, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ComminicationAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CommunicationAdapter.ViewHolder, position: Int) {
         holder.bind(listCommunication[position])
     }
 

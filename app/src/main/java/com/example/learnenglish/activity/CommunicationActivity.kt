@@ -1,12 +1,15 @@
 package com.example.learnenglish.activity
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
+import com.example.learnenglish.database.CommunicationDatabase
 import com.example.learnenglish.dialog.VoiceDialog
 import com.example.learnenglish.model.Communication
 import kotlinx.android.synthetic.main.activity_communication.*
@@ -14,31 +17,22 @@ import pub.devrel.easypermissions.EasyPermissions
 
 class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPermissions.PermissionCallbacks {
 
-    private lateinit var adapterCommunication: ComminicationAdapter
+    private lateinit var adapterCommunication: CommunicationAdapter
+    private lateinit var commDatabase: CommunicationDatabase
+    private var listComm: ArrayList<Communication>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communication)
 
+        //read data
+        val topicIdReceive = intent.getIntExtra(TOPIC_ID_EXTRA, 0)
+        commDatabase = CommunicationDatabase(this)
+        listComm = commDatabase.getListCommByTopicId(topicIdReceive)
+
         btnTest.setOnClickListener(this)
 
-        val listComm = mutableListOf<Communication>()
-        val comm = Communication().apply {
-            id = 1
-            topicId = 1
-            enSentence = "Good evening Sir."
-            viSentence = "Chào ông (buổi tối)"
-            nameSound = "good_evening_sir"
-            false
-            false
-        }
-        listComm.add(comm)
-        listComm.add(comm)
-        listComm.add(comm)
-        listComm.add(comm)
-        listComm.add(comm)
-
-        adapterCommunication = ComminicationAdapter(listComm)
+        adapterCommunication = listComm?.let { CommunicationAdapter(it) }!!
 
         rvCommunication.apply {
             setHasFixedSize(true)
@@ -46,9 +40,9 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
             adapter = adapterCommunication
         }
 
-        adapterCommunication.setListener(object : ComminicationAdapter.CommunicationAdapterListener {
+        adapterCommunication.setListener(object : CommunicationAdapter.CommunicationAdapterListener {
             override fun onMicItemClick(comm: Communication) {
-                Log.d("COMM permission:",  "${comm.enSentence}")
+                Log.d("COMM permission:", comm.enSentence)
                 checkPermissionRecord(comm)
             }
         })
@@ -57,6 +51,7 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
     override fun onClick(v: View?) {
         when(v?.id) {
             btnTest.id -> {
+                CommTestActivity.startNewActivity(this)
             }
         }
     }
@@ -92,6 +87,16 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
         if (requestCode == 1234) {
 
         }
+    }
+
+    companion object {
+        fun startNewActivity(context: Context, topicId: Int) {
+            context.startActivity(Intent(context, CommunicationActivity::class.java).apply {
+                putExtra(TOPIC_ID_EXTRA, topicId)
+            })
+        }
+
+        const val TOPIC_ID_EXTRA = "com.example.learnenglish.activity.TOPIC_ID"
     }
 
 }

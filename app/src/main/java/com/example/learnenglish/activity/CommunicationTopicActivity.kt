@@ -13,8 +13,16 @@ class CommunicationTopicActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Tiếng anh giao tiếp"
 
-        llTopic.setOnClickListener {
-            startActivity(Intent(this, CommunicationActivity::class.java))
+        llGreetingTopic.setOnClickListener {
+            CommunicationActivity.startNewActivity(this, 1)
+        }
+
+        llNumber.setOnClickListener {
+            CommunicationActivity.startNewActivity(this, 2)
+        }
+
+        llTime.setOnClickListener {
+            CommunicationActivity.startNewActivity(this, 3)
         }
     }
 }

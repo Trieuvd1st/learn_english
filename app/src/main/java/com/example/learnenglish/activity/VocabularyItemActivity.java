@@ -43,7 +43,7 @@ public class VocabularyItemActivity extends AppCompatActivity implements OnQuest
         vocabularyItemDatabase = new VocabularyItemDatabase(this);
         vocabularyDatabase = new VocabularyDatabase(this);
         //Toast.makeText(this, vocabulary.getIdVocabulary()+" "+level, Toast.LENGTH_SHORT).show();
-        itemArrayList = vocabularyItemDatabase.getListLevelVocabularyItem(vocabulary.getIdVocabulary());
+        itemArrayList = vocabularyItemDatabase.getListVocabularyItem(vocabulary.getIdVocabulary());
         adapterItem = new VocabularyItemAdapter(this, R.layout.stream_item_vocabulary, itemArrayList);
         adapterItem.setListener(this);
         lv_item.setAdapter(adapterItem);

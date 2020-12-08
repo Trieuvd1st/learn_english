@@ -31,7 +31,7 @@ public class VocabularyItemDatabase extends DBHelper{
 //        database.closeDatabase();
 //        return itemList;
 //    }
-    public List<VocabularyItem> getListLevelVocabularyItem(int idchude) {
+    public List<VocabularyItem> getListVocabularyItem(int idchude) {
         VocabularyItem vocabularyItem = null;
         List<VocabularyItem> itemList = new ArrayList<>();
         VocabularyItemDatabase database = new VocabularyItemDatabase(context);
