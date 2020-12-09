@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="QuantitySetView">
+        <attr name="setColor" format="color" />
+        <attr name="setWidth" format="dimension" />
+        <attr name="setHeight" format="dimension" />
+    </declare-styleable>
+</resources>
