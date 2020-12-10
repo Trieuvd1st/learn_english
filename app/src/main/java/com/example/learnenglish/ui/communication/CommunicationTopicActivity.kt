@@ -1,6 +1,5 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.communication
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learnenglish.R

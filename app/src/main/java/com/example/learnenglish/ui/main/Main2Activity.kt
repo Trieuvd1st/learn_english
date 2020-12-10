@@ -1,10 +1,11 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learnenglish.R
+import com.example.learnenglish.ui.communication.CommunicationTopicActivity
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity(), View.OnClickListener {

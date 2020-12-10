@@ -1,4 +1,4 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.communication.test
 
 import android.content.Context
 import android.util.Log
@@ -13,12 +13,14 @@ class CommTestViewModel : ViewModel() {
     private lateinit var commDatabase: CommunicationDatabase
     private var listCommSelected: ArrayList<Communication>? = null
     var commAnswer: Communication = Communication()
+    var indexAnswer: Int = -1
     var choicePiked: String = ""
 
     val listSize = MutableLiveData<Int>()
     val commAnswerData = MutableLiveData<Communication>()
     val listChoiceData = MutableLiveData<ArrayList<Communication>>()
     val isAnswer = MutableLiveData<Boolean>()
+    val soundAnswerData = MutableLiveData<String>()
 
     fun getListComm(context: Context): ArrayList<Communication>? {
         commDatabase = CommunicationDatabase(context)
@@ -34,11 +36,13 @@ class CommTestViewModel : ViewModel() {
         var commRandom = Communication()
         listCommSelected?.let {
             if (it.size > 0) {
-                commRandom = it[Random.nextInt(0, it.size)]
+                indexAnswer = Random.nextInt(0, it.size)
+                commRandom = it[indexAnswer]
                 listCommSelected?.remove(commRandom)
                 commAnswerData.value = commRandom
             }
         }
+        Log.d("TRIEUVD", "listCommSelected: ${listCommSelected?.size}")
         return commRandom
     }
 
@@ -51,7 +55,7 @@ class CommTestViewModel : ViewModel() {
         val listChoice = ArrayList<Communication>()
         commAnswer = getRandomComm()
         listChoice.add(commAnswer)
-        listComm?.remove(commAnswer)
+        listComm?.removeAt(indexAnswer)
         val choice1 = listComm?.get(Random.nextInt(0, listComm.size))
         listChoice.add(choice1!!)
         listComm.remove(choice1)
@@ -61,11 +65,15 @@ class CommTestViewModel : ViewModel() {
         val choice3 = listComm.get(Random.nextInt(0, listComm.size))
         listChoice.add(choice3)
         listChoice.shuffle()
+        Log.d("TRIEUVD", "get choices: ${listChoice[0].viSentence}, ${listChoice[1].viSentence}, ${listChoice[2].viSentence}, ${listChoice[3].viSentence}")
         listChoiceData.value = listChoice
     }
 
+    fun getSoundAnswer() {
+        soundAnswerData.value = commAnswer.nameSound
+    }
+
     fun checkViResult() {
-        Log.d("ANSWER_COMPARE", "$choicePiked and ${commAnswer.viSentence}")
         isAnswer.value = choicePiked.equals(commAnswer.viSentence, ignoreCase = true)
     }
 

@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.DemoActivity"
+            android:name=".ui.main.Main2Activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,28 +28,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.TestDoneActivity"
+            android:name=".ui.vocabulary.TestDoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ScreenSlidePagerActivity"
+            android:name=".utils.custom.ScreenSlidePagerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.VocabularyActivity"
+            android:name=".ui.vocabulary.VocabularyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.CommunicationTopicActivity"
+            android:name=".ui.communication.CommunicationTopicActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.CommunicationActivity"
+            android:name=".ui.communication.CommunicationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.VocabularyItemActivity"
+            android:name=".ui.vocabulary.VocabularyItemActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.CommTestActivity"
+            android:name=".ui.communication.test.CommTestActivity"
             android:screenOrientation="portrait" />
     </application>
 

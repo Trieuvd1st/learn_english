@@ -1,4 +1,4 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.communication
 
 import android.media.MediaPlayer
 import android.util.Log
@@ -35,11 +35,11 @@ class CommunicationAdapter(private var listCommunication: MutableList<Communicat
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommunicationAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_communication, parent, false))
     }
 
-    override fun onBindViewHolder(holder: CommunicationAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listCommunication[position])
     }
 

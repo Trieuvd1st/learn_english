@@ -1,4 +1,4 @@
-package com.example.learnenglish.activity;
+package com.example.learnenglish.ui.vocabulary;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -6,24 +6,23 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Bitmap;
-import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.learnenglish.model.Question;
 import com.example.learnenglish.R;
+import com.example.learnenglish.model.Question;
+import com.example.learnenglish.utils.custom.ScreenSlidePagerActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;

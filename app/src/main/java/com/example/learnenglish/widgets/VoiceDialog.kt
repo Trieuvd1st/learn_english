@@ -1,4 +1,4 @@
-package com.example.learnenglish.dialog
+package com.example.learnenglish.widgets
 
 import android.annotation.SuppressLint
 import android.app.Dialog

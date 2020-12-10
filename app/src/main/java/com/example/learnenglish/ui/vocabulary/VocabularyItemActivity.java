@@ -1,23 +1,21 @@
-package com.example.learnenglish.activity;
+package com.example.learnenglish.ui.vocabulary;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.VocabularyItemAdapter;
 import com.example.learnenglish.database.VocabularyDatabase;
 import com.example.learnenglish.database.VocabularyItemDatabase;
 import com.example.learnenglish.listener.OnQuestionCallbackVocabularyItem;
 import com.example.learnenglish.model.Vocabulary;
 import com.example.learnenglish.model.VocabularyItem;
-import com.example.learnenglish.R;
 
 import java.util.List;
 

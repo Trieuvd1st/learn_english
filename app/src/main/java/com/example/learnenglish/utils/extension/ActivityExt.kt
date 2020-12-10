@@ -1,4 +1,4 @@
-package com.example.learnenglish.extension
+package com.example.learnenglish.utils.extension
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

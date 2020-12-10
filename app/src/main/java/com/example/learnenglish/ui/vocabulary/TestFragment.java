@@ -1,4 +1,4 @@
-package com.example.learnenglish.fragment;
+package com.example.learnenglish.ui.vocabulary;
 
 
 import android.content.Intent;
@@ -14,12 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.learnenglish.activity.ScreenSlidePagerActivity;
 import com.example.learnenglish.R;
+import com.example.learnenglish.utils.custom.ScreenSlidePagerActivity;
 
 public class TestFragment extends Fragment {
     private ListView lv_test;
-    private String[] list_test= {"Unit 1", "Unit 2", "Unit 3", "Unit 4"};
+    private final String[] list_test = {"Unit 1", "Unit 2", "Unit 3", "Unit 4"};
 
     public TestFragment() {
     }

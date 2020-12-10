@@ -1,14 +1,7 @@
-package com.example.learnenglish.activity;
+package com.example.learnenglish.ui.main;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Environment;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,16 +11,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.learnenglish.fragment.AlphabetFragment;
-import com.example.learnenglish.fragment.SearchFragment;
-import com.example.learnenglish.fragment.TestFragment;
-import com.example.learnenglish.fragment.VocabularyFragment;
 import com.example.learnenglish.R;
+import com.example.learnenglish.ui.communication.test.VocabularyFragment;
+import com.example.learnenglish.ui.vocabulary.AlphabetFragment;
+import com.example.learnenglish.ui.vocabulary.SearchFragment;
+import com.example.learnenglish.ui.vocabulary.TestFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;

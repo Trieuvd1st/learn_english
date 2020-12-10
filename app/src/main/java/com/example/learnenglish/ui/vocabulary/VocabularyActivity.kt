@@ -1,10 +1,10 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.vocabulary
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learnenglish.R
-import com.example.learnenglish.extension.replaceFragmentInActivity
-import com.example.learnenglish.fragment.VocabularyFragment
+import com.example.learnenglish.ui.communication.test.VocabularyFragment
+import com.example.learnenglish.utils.extension.replaceFragmentInActivity
 
 class VocabularyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

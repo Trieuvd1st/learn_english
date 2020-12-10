@@ -1,4 +1,4 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.communication.test
 
 import android.content.Context
 import android.content.Intent
@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
-import com.example.learnenglish.fragment.EnSenToMicFragment
-import com.example.learnenglish.fragment.EnSenToViSenFragment
-import com.example.learnenglish.fragment.SoundToTextFragment
-import com.example.learnenglish.fragment.ViSenToEnSenFragment
+import com.example.learnenglish.ui.SoundToTextFragment
 import kotlinx.android.synthetic.main.activity_comm_test.*
 import kotlin.random.Random
 

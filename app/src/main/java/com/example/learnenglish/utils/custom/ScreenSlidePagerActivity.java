@@ -1,10 +1,9 @@
-package com.example.learnenglish.activity;
+package com.example.learnenglish.utils.custom;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.CountDownTimer;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -18,11 +17,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.CheckAnswerAdapter;
 import com.example.learnenglish.database.TestItemDatabase;
-import com.example.learnenglish.fragment.ScreenSlidePageFragment;
 import com.example.learnenglish.model.Question;
-import com.example.learnenglish.R;
+import com.example.learnenglish.ui.vocabulary.TestDoneActivity;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -87,7 +86,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     }
 
     public void truyenDuLieu(){
-        Intent intent1=new Intent(ScreenSlidePagerActivity.this,TestDoneActivity.class);
+        Intent intent1 = new Intent(ScreenSlidePagerActivity.this, TestDoneActivity.class);
         intent1.putExtra("arr_Ques", list_question);
         startActivity(intent1);
         finish();

@@ -1,4 +1,4 @@
-package com.example.learnenglish.activity
+package com.example.learnenglish.ui.communication
 
 import android.Manifest
 import android.content.Context
@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.CommunicationDatabase
-import com.example.learnenglish.dialog.VoiceDialog
 import com.example.learnenglish.model.Communication
+import com.example.learnenglish.ui.communication.test.CommTestActivity
+import com.example.learnenglish.widgets.VoiceDialog
 import kotlinx.android.synthetic.main.activity_communication.*
 import pub.devrel.easypermissions.EasyPermissions
 import kotlin.random.Random

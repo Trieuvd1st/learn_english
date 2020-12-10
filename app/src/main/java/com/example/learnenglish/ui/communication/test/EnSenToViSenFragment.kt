@@ -1,5 +1,6 @@
-package com.example.learnenglish.fragment
+package com.example.learnenglish.ui.communication.test
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
-import com.example.learnenglish.activity.CommTestViewModel
 import kotlinx.android.synthetic.main.fragment_en_sen_to_vi_sen.*
 
 class EnSenToViSenFragment : Fragment() {
@@ -31,7 +31,7 @@ class EnSenToViSenFragment : Fragment() {
 
     private fun onClick() {
         ivSpeaker.setOnClickListener {
-
+            viewModelCommTest.getSoundAnswer()
         }
 
         btnDA1.setOnClickListener {
@@ -79,10 +79,16 @@ class EnSenToViSenFragment : Fragment() {
                 btnDA3.text = it[2].viSentence
                 btnDA4.text = it[3].viSentence
             })
+
+            soundAnswerData.observe(this@EnSenToViSenFragment, Observer {
+                val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
+                val mediaPlayer = MediaPlayer.create(context, resourceFromName)
+                mediaPlayer.start()
+            })
         }
     }
 
-    fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
+    private fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
         when (isSelected) {
             true -> {
                 textView.setBackgroundResource(R.drawable.bg_blue_corner_hard)

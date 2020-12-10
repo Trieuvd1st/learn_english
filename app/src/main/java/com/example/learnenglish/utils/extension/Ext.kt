@@ -1,4 +1,4 @@
-package com.example.learnenglish.extension
+package com.example.learnenglish.utils.extension
 
 import android.content.Intent
 import android.os.Bundle

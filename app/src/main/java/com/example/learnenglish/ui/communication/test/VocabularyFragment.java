@@ -1,4 +1,4 @@
-package com.example.learnenglish.fragment;
+package com.example.learnenglish.ui.communication.test;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.learnenglish.R;
+import com.example.learnenglish.adapter.VocabularyAdapter;
 import com.example.learnenglish.database.VocabularyDatabase;
 import com.example.learnenglish.model.Vocabulary;
-import com.example.learnenglish.adapter.VocabularyAdapter;
-import com.example.learnenglish.activity.VocabularyItemActivity;
-import com.example.learnenglish.R;
+import com.example.learnenglish.ui.vocabulary.VocabularyItemActivity;
 
 import java.io.File;
 import java.util.ArrayList;

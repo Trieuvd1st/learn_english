@@ -1,4 +1,4 @@
-package com.example.learnenglish.fragment;
+package com.example.learnenglish.utils.custom;
 
 
 import android.graphics.Color;
@@ -15,9 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.learnenglish.activity.ScreenSlidePagerActivity;
-import com.example.learnenglish.model.Question;
 import com.example.learnenglish.R;
+import com.example.learnenglish.model.Question;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -86,7 +85,7 @@ public class ScreenSlidePageFragment extends Fragment {
             radA.setClickable(false);
             radB.setClickable(false);
             radC.setClickable(false);
-            getCheckAns(getItem(mPageNumber).getAnswer().toString());
+            getCheckAns(getItem(mPageNumber).getAnswer());
         }
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

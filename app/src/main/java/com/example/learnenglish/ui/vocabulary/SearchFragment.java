@@ -1,4 +1,4 @@
-package com.example.learnenglish.fragment;
+package com.example.learnenglish.ui.vocabulary;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.fragment.app.Fragment;
 
+import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.SearchAdapter;
 import com.example.learnenglish.database.SearchDatabase;
 import com.example.learnenglish.listener.OnQuestionCallbackVocabularyItem;
 import com.example.learnenglish.model.Vocabulary;
 import com.example.learnenglish.model.VocabularyItem;
-import com.example.learnenglish.R;
 
 import java.util.ArrayList;
 import java.util.List;
