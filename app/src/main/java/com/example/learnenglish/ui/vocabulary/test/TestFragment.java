@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary;
+package com.example.learnenglish.ui.vocabulary.test;
 
 
 import android.content.Intent;
@@ -29,7 +29,7 @@ public class TestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_test, container, false);
-        lv_test= (ListView) view.findViewById(R.id.lisstview_test);
+        lv_test = view.findViewById(R.id.lisstview_test);
         ArrayAdapter adapter=new ArrayAdapter(getActivity(), R.layout.custom_dongbaitest, list_test);
         lv_test.setAdapter(adapter);
         return view;

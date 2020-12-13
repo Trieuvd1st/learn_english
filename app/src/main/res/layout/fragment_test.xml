@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.vocabulary.TestFragment">
+    tools:context=".ui.vocabulary.test.TestFragment">
 
     <ListView
         android:id="@+id/lisstview_test"

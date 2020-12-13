@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learnenglish.R
 import com.example.learnenglish.ui.communication.CommunicationTopicActivity
+import com.example.learnenglish.ui.grammar.GrammarTopicActivity
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity(), View.OnClickListener {
@@ -22,9 +23,13 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener {
         when(v?.id) {
             llVocabulary.id -> { startActivity(Intent(this, MainActivity::class.java))}
 
-            llGrammar.id -> { startActivity(Intent(this, CommunicationTopicActivity::class.java)) }
+            llGrammar.id -> {
+                startActivity(Intent(this, GrammarTopicActivity::class.java))
+            }
 
-            llCommunication.id -> { startActivity(Intent(this, CommunicationTopicActivity::class.java)) }
+            llCommunication.id -> {
+                startActivity(Intent(this, CommunicationTopicActivity::class.java))
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ import com.example.learnenglish.R;
 import com.example.learnenglish.ui.communication.test.VocabularyFragment;
 import com.example.learnenglish.ui.vocabulary.AlphabetFragment;
 import com.example.learnenglish.ui.vocabulary.SearchFragment;
-import com.example.learnenglish.ui.vocabulary.TestFragment;
+import com.example.learnenglish.ui.vocabulary.test.TestFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

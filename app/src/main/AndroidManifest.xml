@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.vocabulary.TestDoneActivity"
+            android:name=".ui.vocabulary.test.TestDoneActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".utils.custom.ScreenSlidePagerActivity"
@@ -50,6 +50,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.communication.test.CommTestActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.vocabulary.FlashCardActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.vocabulary.test.VocaTestActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.grammar.GrammarTopicActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.grammar.GrammarContentActivity"
             android:screenOrientation="portrait" />
     </application>
 

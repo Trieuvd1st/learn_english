@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary;
+package com.example.learnenglish.ui.vocabulary.test;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -102,14 +102,14 @@ public class TestDoneActivity extends AppCompatActivity implements View.OnClickL
         share(sharePath);
     }
 
-    public void anhXa(){
-        txtCaudung=(TextView) findViewById(R.id.textview_caudung);
-        txtCausai=(TextView) findViewById(R.id.textview_causai);
-        txtChuaTraloi=(TextView) findViewById(R.id.textview_chuaTraloi);
-        txtTongdiem=(TextView) findViewById(R.id.textview_tongDiem);
-        btnChoilai=(Button) findViewById(R.id.Button_Choilai);
-        btnThoat=(Button)findViewById(R.id.Button_Thoat);
-        btnShare=(ImageButton) findViewById(R.id.button_share);
+    public void anhXa() {
+        txtCaudung = findViewById(R.id.textview_caudung);
+        txtCausai = findViewById(R.id.textview_causai);
+        txtChuaTraloi = findViewById(R.id.textview_chuaTraloi);
+        txtTongdiem = findViewById(R.id.textview_tongDiem);
+        btnChoilai = findViewById(R.id.Button_Choilai);
+        btnThoat = findViewById(R.id.Button_Thoat);
+        btnShare = findViewById(R.id.button_share);
     }
     public void checkResult(){
         for(int i=0;i<arr_QuesBegin.size();i++){

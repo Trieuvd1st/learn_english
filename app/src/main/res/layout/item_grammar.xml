@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_micro"
+    android:background="@drawable/bg_white_corner_hard_stroke_gray"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small"
+        android:text="Chào ông(buổi tối)"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+</LinearLayout>

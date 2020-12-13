@@ -21,7 +21,7 @@ import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.CheckAnswerAdapter;
 import com.example.learnenglish.database.TestItemDatabase;
 import com.example.learnenglish.model.Question;
-import com.example.learnenglish.ui.vocabulary.TestDoneActivity;
+import com.example.learnenglish.ui.vocabulary.test.TestDoneActivity;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -51,19 +51,19 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide_pager);
-        txtKiemtra= (TextView) findViewById(R.id.tvKiemTra);
-        tvXemdiem=(TextView) findViewById(R.id.tvScore);
-        tvTimer=(TextView) findViewById(R.id.tvTimer);
-        mPager = (ViewPager) findViewById(R.id.pager);
+        txtKiemtra = findViewById(R.id.tvKiemTra);
+        tvXemdiem = findViewById(R.id.tvScore);
+        tvTimer = findViewById(R.id.tvTimer);
+        mPager = findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
         mPager.setPageTransformer(true, new DepthPageTransformer());
-        timer= new CounterClass(60*1000, 1000);
-        testItemDatabase= new TestItemDatabase(this);
-        list_question= new ArrayList<>();
-        Intent intent= getIntent();
-        int vitri= intent.getIntExtra("viTri",124);
-        list_question= testItemDatabase.getListQuestion(vitri+1);
+        timer = new CounterClass(60 * 1000, 1000);
+        testItemDatabase = new TestItemDatabase(this);
+        list_question = new ArrayList<>();
+        Intent intent = getIntent();
+        int vitri = intent.getIntExtra("viTri", 124);
+        list_question = testItemDatabase.getListQuestion(vitri + 1);
         txtKiemtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,7 +169,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
         dialog.setContentView(R.layout.dialog_checkdapan);
         dialog.setTitle("Danh sách câu trả lời");
         CheckAnswerAdapter checkAnswerAdapter = new CheckAnswerAdapter(this, list_question);
-        GridView gridView= (GridView) dialog.findViewById(R.id.gridview);
+        GridView gridView = dialog.findViewById(R.id.gridview);
         gridView.setAdapter(checkAnswerAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -178,8 +178,8 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
                 dialog.dismiss();
             }
         });
-        Button btn_huy= (Button) dialog.findViewById(R.id.button_huy);
-        Button btn_ketThuc=(Button) dialog.findViewById(R.id.button_ketthuc);
+        Button btn_huy = dialog.findViewById(R.id.button_huy);
+        Button btn_ketThuc = dialog.findViewById(R.id.button_ketthuc);
         btn_huy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
