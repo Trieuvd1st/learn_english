@@ -9,9 +9,9 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.core.view.isVisible
 import com.example.learnenglish.R
-import kotlinx.android.synthetic.main.dialog_voca_answer_test.*
+import kotlinx.android.synthetic.main.dialog_answer_test.*
 
-class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String, val listener: VoCaAnswerTestDialogListener) : Dialog(context) {
+class AnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String, val listener: VoCaAnswerTestDialogListener) : Dialog(context) {
 
 
     interface VoCaAnswerTestDialogListener {
@@ -21,7 +21,7 @@ class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_voca_answer_test)
+        setContentView(R.layout.dialog_answer_test)
 
         window?.apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

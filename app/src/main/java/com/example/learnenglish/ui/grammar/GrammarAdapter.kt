@@ -26,6 +26,7 @@ class GrammarAdapter(private var listGrammar: MutableList<Grammar>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(grammar: Grammar) = with(itemView) {
+            tvId.text = grammar.id.toString()
             tvTopic.text = grammar.topic
             itemView.setOnClickListener {
                 GrammarContentActivity.startNewActivity(context, grammar)

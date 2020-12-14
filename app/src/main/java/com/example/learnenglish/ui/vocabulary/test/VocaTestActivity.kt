@@ -9,9 +9,8 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyItemDatabase
 import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.model.WordChar
-import com.example.learnenglish.widgets.VocaAnswerTestDialog
+import com.example.learnenglish.widgets.AnswerTestDialog
 import kotlinx.android.synthetic.main.activity_voca_test.*
-import kotlinx.android.synthetic.main.include_toolbar.*
 
 class VocaTestActivity : AppCompatActivity() {
 
@@ -48,11 +47,11 @@ class VocaTestActivity : AppCompatActivity() {
         }
 
         btnCheck.setOnClickListener {
-            val dialogResult = VocaAnswerTestDialog(
+            val dialogResult = AnswerTestDialog(
                     this,
                     tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
                     currentVoca.englishWordItem,
-                    object : VocaAnswerTestDialog.VoCaAnswerTestDialogListener {
+                    object : AnswerTestDialog.VoCaAnswerTestDialogListener {
                         override fun onBtnNext() {
                             showTest()
                         }

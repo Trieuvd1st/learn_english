@@ -50,7 +50,7 @@
         android:layout_margin="@dimen/spacing_small"
         android:text="Kiểm tra"
         android:textColor="@color/white"
-        android:background="@drawable/bg_border_soft_blue"
+        android:background="@drawable/bg_border_soft_orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

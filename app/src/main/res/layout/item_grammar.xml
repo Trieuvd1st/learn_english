@@ -2,16 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/spacing_micro"
     android:background="@drawable/bg_white_corner_hard_stroke_gray"
-    android:orientation="vertical">
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvId"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/bg_circle_stroke_black"
+        android:text="1"
+        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/spacing_tiny"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/tvTopic"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_small"
-        android:text="Chào ông(buổi tối)"
+        android:layout_weight="1"
+        android:paddingTop="@dimen/spacing_small"
+        android:paddingBottom="@dimen/spacing_small"
+        android:paddingLeft="@dimen/spacing_tiny"
+        android:text="Cấu trúc 1 câu trong tiếng anh"
+        android:textSize="@dimen/font_normal"
         android:textColor="#000000"
         android:textStyle="bold" />
 

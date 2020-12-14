@@ -16,6 +16,8 @@ class GrammarContentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grammar_content)
 
+
+
         val grammar: Grammar = intent.getSerializableExtra(GRAMMAR_EXTRA) as Grammar
         tvContent.text = DisplayUtils.fromHtml(grammar.detailContent)
         Log.d("GRAMMAR_CONTENT", "${grammar.detailContent}")

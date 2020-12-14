@@ -95,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_small"
-        android:background="@drawable/bg_border_soft_blue"
+        android:background="@drawable/bg_border_soft_orange"
         android:text="Kiểm tra"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

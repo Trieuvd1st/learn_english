@@ -1,5 +1,6 @@
 package com.example.learnenglish.ui.communication.test
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
+import com.example.learnenglish.model.Communication
 import kotlinx.android.synthetic.main.fragment_en_sen_to_vi_sen.*
 
 class SoundToTextFragment : Fragment() {
 
     private lateinit var viewModelCommTest: CommTestViewModel
+
+    private var currentComm = Communication()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -27,15 +31,18 @@ class SoundToTextFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        initViewModel()
+
         onClick()
     }
 
     private fun onClick() {
         ivSpeaker.setOnClickListener {
-
+            viewModelCommTest.getSoundAnswer()
         }
 
         btnDA1.setOnClickListener {
+            viewModelCommTest.setChoicePicked(btnDA1.text.toString())
             changeViewAnswer(btnDA1, true)
             changeViewAnswer(btnDA2, false)
             changeViewAnswer(btnDA3, false)
@@ -43,6 +50,7 @@ class SoundToTextFragment : Fragment() {
         }
 
         btnDA2.setOnClickListener {
+            viewModelCommTest.setChoicePicked(btnDA2.text.toString())
             changeViewAnswer(btnDA1, false)
             changeViewAnswer(btnDA2, true)
             changeViewAnswer(btnDA3, false)
@@ -50,6 +58,7 @@ class SoundToTextFragment : Fragment() {
         }
 
         btnDA3.setOnClickListener {
+            viewModelCommTest.setChoicePicked(btnDA3.text.toString())
             changeViewAnswer(btnDA1, false)
             changeViewAnswer(btnDA2, false)
             changeViewAnswer(btnDA3, true)
@@ -57,6 +66,7 @@ class SoundToTextFragment : Fragment() {
         }
 
         btnDA4.setOnClickListener {
+            viewModelCommTest.setChoicePicked(btnDA4.text.toString())
             changeViewAnswer(btnDA1, false)
             changeViewAnswer(btnDA2, false)
             changeViewAnswer(btnDA3, false)
@@ -67,12 +77,25 @@ class SoundToTextFragment : Fragment() {
     private fun initViewModel() {
         viewModelCommTest = ViewModelProviders.of(activity!!).get(CommTestViewModel::class.java).apply {
             commAnswerData.observe(this@SoundToTextFragment, Observer {
+                currentComm = it
+            })
 
+            listChoiceData.observe(this@SoundToTextFragment, Observer {
+                btnDA1.text = it[0].enSentence
+                btnDA2.text = it[1].enSentence
+                btnDA3.text = it[2].enSentence
+                btnDA4.text = it[3].enSentence
+            })
+
+            soundAnswerData.observe(this@SoundToTextFragment, Observer {
+                val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
+                val mediaPlayer = MediaPlayer.create(context, resourceFromName)
+                mediaPlayer.start()
             })
         }
     }
 
-    fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
+    private fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
         when (isSelected) {
             true -> {
                 textView.setBackgroundResource(R.drawable.bg_blue_corner_hard)

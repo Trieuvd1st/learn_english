@@ -6,14 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
+import com.example.learnenglish.widgets.AnswerTestDialog
 import kotlinx.android.synthetic.main.activity_comm_test.*
 import kotlin.random.Random
 
-class CommTestActivity : AppCompatActivity(), View.OnClickListener {
+class CommTestActivity : AppCompatActivity(), View.OnClickListener, AnswerTestDialog.VoCaAnswerTestDialogListener {
 
     private lateinit var viewModelCommTest: CommTestViewModel
     private var fragmentType = 1
@@ -25,6 +27,8 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener {
         ivBack.setOnClickListener(this)
         ivSkip.setOnClickListener(this)
         btnTest.setOnClickListener(this)
+
+        //showHideBtnTest(false)
 
         initViewModel()
 
@@ -39,7 +43,7 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener {
 
             ivSkip.id -> {
                 viewModelCommTest.getRandomMutileChoice(this)
-                setRandomLayout()
+                //setRandomLayout()
             }
 
             btnTest.id -> {
@@ -60,11 +64,29 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener {
             })
 
             isAnswer.observe(this@CommTestActivity, Observer {
-                if (it) {
-                    Toast.makeText(this@CommTestActivity, "ĐÚng cmnr", Toast.LENGTH_SHORT).show()
+                if (it == "1") {
+                    AnswerTestDialog(this@CommTestActivity, true, it, this@CommTestActivity).show()
                 } else {
-                    Toast.makeText(this@CommTestActivity, "Sai vl", Toast.LENGTH_SHORT).show()
+                    AnswerTestDialog(this@CommTestActivity, false, it, this@CommTestActivity).show()
                 }
+            })
+
+            listChoiceData.observe(this@CommTestActivity, Observer {
+                if (it.isNotEmpty()) {
+                    setRandomLayout()
+                }
+            })
+
+            isBtnTextEnable.observe(this@CommTestActivity, Observer {
+                showHideBtnTest(it)
+            })
+
+            totalItemData.observe(this@CommTestActivity, Observer {
+                pbCountNumber.max = it
+            })
+
+            currentCountData.observe(this@CommTestActivity, Observer {
+                pbCountNumber.progress = it
             })
         }
 
@@ -77,6 +99,7 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setRandomLayout() {
+        showHideBtnTest(false)
         fragmentType = Random.nextInt(1, 5)
         when (fragmentType) {
             1 -> showLayoutFragment(EnSenToViSenFragment())
@@ -84,6 +107,23 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener {
             3 -> showLayoutFragment(EnSenToMicFragment())
             else -> showLayoutFragment(ViSenToEnSenFragment())
         }
+    }
+
+    private fun showHideBtnTest(isEnable: Boolean) {
+        if (isEnable) {
+            btnTest.isEnabled = true
+            btnTest.setBackgroundResource(R.drawable.bg_border_soft_orange)
+            btnTest.setTextColor(ContextCompat.getColor(this, R.color.white))
+        } else {
+            btnTest.isEnabled = false
+            btnTest.setBackgroundResource(R.drawable.bg_gray_corner_hard)
+            btnTest.setTextColor(ContextCompat.getColor(this, R.color.black))
+        }
+    }
+
+    override fun onBtnNext() {
+        viewModelCommTest.getRandomMutileChoice(this)
+        //setRandomLayout()
     }
 
     companion object {
