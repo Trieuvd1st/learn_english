@@ -1,18 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent">
 
-        <GridView
-            android:id="@+id/gripview"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:horizontalSpacing="15dp"
-            android:verticalSpacing="15dp"
-            android:numColumns="2"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </GridView>
-    </RelativeLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<androidx.cardview.widget.CardView
+app:cardBackgroundColor="@color/white"
+app:cardCornerRadius="8dp"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="@dimen/spacing_tiny">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/img_anphabet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Anphabet"
+        android:textColor="@color/orange_bright"
+        android:textSize="@dimen/font_normal"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnAnphabetDetail"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_marginBottom="@dimen/spacing_tiny"
+        android:background="@drawable/bg_blue_corner_soft"
+        android:text="Chi tiết"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</LinearLayout>
+
+</androidx.cardview.widget.CardView>-->
+
+    <GridView
+        android:id="@+id/gripview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
+        android:padding="5dp"
+        android:verticalSpacing="15dp" />
+
+</LinearLayout>

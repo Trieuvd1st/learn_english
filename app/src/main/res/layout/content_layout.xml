@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_height="170dp"
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
     android:layout_width="170dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="100dp"
-    app:cardCornerRadius="@dimen/cardview_default_elevation"
+    app:cardCornerRadius="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="170dp"
-        android:layout_height="170dp">
+        android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image"
@@ -16,19 +16,50 @@
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"/>
+            android:layout_marginRight="25dp" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/tvEnTopic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ten chu de"
+            android:layout_alignLeft="@+id/image"
             android:layout_below="@+id/image"
             android:gravity="center"
-            android:textSize="20sp"
-            android:textStyle="italic"
-            android:textColor="#ff00"
+            android:layout_alignRight="@id/image"
+            android:text="House"
+            android:textColor="@color/orange_bright"
+            android:textSize="@dimen/font_large"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvViTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEnTopic"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:gravity="center"
+            android:text="Nhà Ở"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_normal"
+            android:textStyle="bold"
             android:layout_alignLeft="@+id/image"
-            android:layout_alignRight="@id/image"/>
+            android:layout_alignRight="@id/image" />
+
+        <Button
+            android:id="@+id/btnDetail"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/tvViTopic"
+            android:layout_alignLeft="@+id/image"
+            android:layout_alignRight="@id/image"
+            android:layout_marginStart="@dimen/spacing_tiny"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:background="@drawable/bg_blue_corner_soft"
+            android:text="Chi tiết"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -46,9 +46,6 @@
             android:name=".ui.communication.CommunicationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.vocabulary.VocabularyItemActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.communication.test.CommTestActivity"
             android:screenOrientation="portrait" />
 
@@ -66,6 +63,10 @@
 
         <activity
             android:name=".ui.grammar.GrammarContentActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.vocabulary.VocaItemActivity"
             android:screenOrientation="portrait" />
     </application>
 

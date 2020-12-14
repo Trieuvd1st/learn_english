@@ -1,8 +1,6 @@
 package com.example.learnenglish.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,10 +10,7 @@ import android.widget.TextView;
 
 import com.example.learnenglish.listener.OnQuestionCallbackVocabularyItem;
 import com.example.learnenglish.model.VocabularyItem;
-import com.example.learnenglish.R;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public class SearchAdapter extends BaseAdapter {
@@ -63,7 +58,7 @@ public class SearchAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        /*ViewHolder holder;
         if(convertView==null){
             holder=new ViewHolder();
             LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -94,7 +89,7 @@ public class SearchAdapter extends BaseAdapter {
                     mListener.onClickQuestion(vocabularyItem);
                 }
             }
-        });
+        });*/
         return convertView;
     }
 

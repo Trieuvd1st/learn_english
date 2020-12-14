@@ -6,7 +6,6 @@ import android.database.Cursor;
 import com.example.learnenglish.model.Vocabulary;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VocabularyDatabase extends DBHelper{
     private Context context;
@@ -17,20 +16,20 @@ public class VocabularyDatabase extends DBHelper{
 
 
     public ArrayList<Vocabulary> getListVocabulary() {
-        Vocabulary vocabulary = null;
-        List<Vocabulary> vocabularyArrayList = new ArrayList<>();
+        Vocabulary vocabulary;
+        ArrayList<Vocabulary> vocabularyArrayList = new ArrayList<>();
         VocabularyDatabase db = new VocabularyDatabase(context);
         db.openDatabase();
         Cursor cursor = db.getDataFromSQLite("SELECT * FROM Chude");
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             vocabularyArrayList.add(vocabulary);
             cursor.moveToNext();
         }
         cursor.close();
         db.closeDatabase();
-        return (ArrayList<Vocabulary>) vocabularyArrayList;
+        return vocabularyArrayList;
     }
     public Vocabulary getListVocabularyFromId(int id) {
         Vocabulary vocabulary = null;
@@ -40,7 +39,7 @@ public class VocabularyDatabase extends DBHelper{
         Cursor cursor = db.getDataFromSQLite("SELECT * FROM Chude WHERE Id = '"+id+"'");
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
             //vocabularyList.add(vocabulary);
             cursor.moveToNext();
         }

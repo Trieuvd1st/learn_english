@@ -25,6 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:progress="10"
             android:layout_marginLeft="@dimen/spacing_tiny"
             android:layout_marginRight="@dimen/spacing_tiny"
             android:layout_weight="1" />
@@ -74,6 +75,8 @@
             android:textColor="@color/black"
             android:textSize="@dimen/font_large"
             android:textStyle="bold"
+            android:text="APPLE"
+            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSpeaker" />

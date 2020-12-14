@@ -1,5 +1,6 @@
 package com.example.learnenglish.ui.vocabulary.test
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -15,19 +16,37 @@ class VocaTestActivity : AppCompatActivity() {
     private lateinit var adapterVocaTest: VocaTestAdapter
     private var enResult: String = ""
     private var listVocabularyItem = mutableListOf<VocabularyItem>()
+    private var totalItem = 0
+    private var currentVoca = VocabularyItem()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voca_test)
 
+        val topicId = intent.getIntExtra("VOCA_ITEM_PRATICE", 0)
+
         val vocabularyItemDatabase = VocabularyItemDatabase(this)
-        listVocabularyItem = vocabularyItemDatabase.getListVocabularyItem(2)
+        listVocabularyItem = vocabularyItemDatabase.getListVocabularyItem(topicId)
+        totalItem = listVocabularyItem.size
+        pbCountNumber.max = totalItem
 
         initAdapter()
         showTest()
 
-        btnCheck.setOnClickListener {
+        ivBack.setOnClickListener { finish() }
+        ivSkip.setOnClickListener {
             showTest()
+        }
+
+        ivSpeaker.setOnClickListener {
+            MediaPlayer.create(
+                this,
+                resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
+            ).start()
+        }
+
+        btnCheck.setOnClickListener {
+            //VocaAnswerTestDialog(this, tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true), currentVoca.englishWordItem).show()
         }
     }
 
@@ -63,12 +82,12 @@ class VocaTestActivity : AppCompatActivity() {
         tvEnResult.text = enResult
         if (listVocabularyItem.isNotEmpty()) {
             listVocabularyItem.shuffle()
-            val voca = listVocabularyItem[0]
-            listVocabularyItem.remove(voca)
+            currentVoca = listVocabularyItem[0]
+            listVocabularyItem.remove(currentVoca)
 
             val listChar = mutableListOf<WordChar>()
-            tvVi.text = voca.vietnameseWordItem
-            voca.englishWordItem.forEach { it ->
+            tvVi.text = currentVoca.vietnameseWordItem
+            currentVoca.englishWordItem.forEach { it ->
                 listChar.add(WordChar().apply {
                     text = it.toString()
                     isShow = true
@@ -77,6 +96,7 @@ class VocaTestActivity : AppCompatActivity() {
             }
             listChar.shuffle()
             adapterVocaTest.setData(listChar)
+            pbCountNumber.progress = totalItem - listVocabularyItem.size
         }
     }
 }

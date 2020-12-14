@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_small">
+
+    <!--<LinearLayout
+        android:id="@+id/llCorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:src="@drawable/ic_smile_orange"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_light"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="Chính xác"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llIncorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:src="@drawable/ic_cry_orange"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red_bright"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="Sai rồi"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đáp án : Hotel"
+            android:textStyle="bold"
+            android:textColor="@color/blue_light"
+            android:textSize="@dimen/font_normal"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_next_white"
+        android:background="@drawable/bg_orange_corner_normal"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:layout_gravity="center_horizontal"/>-->
+
+</LinearLayout>

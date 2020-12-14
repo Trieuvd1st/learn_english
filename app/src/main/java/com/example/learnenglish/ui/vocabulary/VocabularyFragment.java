@@ -1,13 +1,12 @@
-package com.example.learnenglish.ui.communication.test;
+package com.example.learnenglish.ui.vocabulary;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +16,7 @@ import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.VocabularyAdapter;
 import com.example.learnenglish.database.VocabularyDatabase;
 import com.example.learnenglish.model.Vocabulary;
-import com.example.learnenglish.ui.vocabulary.VocabularyItemActivity;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class VocabularyFragment extends Fragment {
@@ -31,30 +28,35 @@ public class VocabularyFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_vocabulary,container,false);
+        View view = inflater.inflate(R.layout.fragment_vocabulary, container, false);
         gridView = view.findViewById(R.id.gripview);
 
+        if ("123".equalsIgnoreCase("ádqwe"))
+
+            vocabularyArrayList = new ArrayList<>();
         vocabularyDatabase = new VocabularyDatabase(getActivity());
-        File database = getActivity().getDatabasePath(VocabularyDatabase.DBNAME);
-        if(!database.exists()) {
-            vocabularyDatabase.getReadableDatabase();
-            if(vocabularyDatabase.copyDatabase(getActivity())) {
-                Toast.makeText(getActivity(), "Copy database success", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getActivity(), "Copy data error", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        vocabularyArrayList = new ArrayList<>();
         vocabularyArrayList = vocabularyDatabase.getListVocabulary();
-        vocabularyAdapter= new VocabularyAdapter(getActivity(),vocabularyArrayList, R.layout.content_layout);
+        Log.d("TRIEUVD", vocabularyArrayList.size() + "");
+        vocabularyAdapter = new VocabularyAdapter(getActivity(), vocabularyArrayList, R.layout.content_layout);
         gridView.setAdapter(vocabularyAdapter);
+        gridView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+        gridView.setVerticalScrollBarEnabled(false);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(), VocabularyItemActivity.class);
                 intent.putExtra("position", vocabularyArrayList.get(position));
+                startActivity(intent);
+            }
+        });*/
+
+        vocabularyAdapter.setListener(new VocabularyAdapter.VocabularyAdapterListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Intent intent = new Intent(getActivity(), VocaItemActivity.class);
+                intent.putExtra("position", vocabularyArrayList.get(pos));
+                intent.putExtra("vocabulary_title", vocabularyArrayList.get(pos).getEnTopicVocabulary());
                 startActivity(intent);
             }
         });

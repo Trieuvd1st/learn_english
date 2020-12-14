@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#01579B</color>
-    <color name="colorPrimaryDark">#0F479C</color>
+    <color name="colorPrimaryDark">#870A03</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="black">#000000</color>
@@ -16,7 +16,7 @@
     <color name="gray_trans_30">#59D8D8D8</color>
 
     <color name="blue_dark">#0066FF</color>
-    <color name="blue_light">#EDF4FF</color>
+    <color name="blue_light">#1C9CF7</color>
     <color name="blue_trans_30">#4D0066FF</color>
 
     <color name="blue_facebook">#3b5998</color>
@@ -29,7 +29,7 @@
     <color name="yellow_bright">#fbc02d</color>
     <color name="yellow_light">#33F8BF63</color>
 
-    <color name="red_bright">#FA0321</color>
+    <color name="red_bright">#B00F05</color>
 
     <color name="pink_light">#FCE7EA</color>
 
@@ -40,4 +40,5 @@
     <color name="amber_100">#ffecb3</color>
 
     <color name="orange">#F68F5E</color>
+    <color name="orange_bright">#FF8E01</color>
 </resources>

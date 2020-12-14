@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardview"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20dp"
-    app:cardBackgroundColor="#8CC0A2"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="10dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_micro"
+    android:orientation="vertical">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tvEn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:text="bull"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/btnSpeaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/loaloa" />
+
+    <TextView
+        android:id="@+id/tvSpell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="/fds/"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/tvVi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="bò đực"
+        android:textColor="@color/black" />
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/spacing_tiny"
+        android:background="@color/gray_30" />
 
-        <ImageView
-            android:id="@+id/image_item"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
-            android:layout_margin="10dp" />
-
-        <TextView
-            android:id="@+id/textview_Tutienganh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/image_item"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@+id/image_item"
-            android:text="Tu tieng anh"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textview_Tutiengviet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textview_Tutienganh"
-            android:layout_alignBottom="@+id/image_item"
-            android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/image_item"
-            android:text="Tu tieng viet"
-            android:textSize="20sp" />
-
-        <ImageButton
-            android:id="@+id/imageButton_sound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textview_Tutienganh"
-            android:layout_alignLeft="@+id/textview_Tutienganh"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/image_item"
-            android:src="@drawable/loaloa" />
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

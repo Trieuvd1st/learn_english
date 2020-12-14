@@ -4,16 +4,15 @@ import java.io.Serializable;
 
 public class Vocabulary implements Serializable {
     private int idVocabulary;
+    private String enTopicVocabulary;
+    private String viTopicVoCabulary;
     private String imageVocabulary;
-    private String nameVocabulary;
 
-    public Vocabulary(int idVocabulary, String nameVocabulary, String imageVocabulary) {
+    public Vocabulary(int idVocabulary, String enTopicVocabulary, String viTopicVoCabulary, String imageVocabulary) {
         this.idVocabulary = idVocabulary;
+        this.enTopicVocabulary = enTopicVocabulary;
+        this.viTopicVoCabulary = viTopicVoCabulary;
         this.imageVocabulary = imageVocabulary;
-        this.nameVocabulary = nameVocabulary;
-    }
-
-    public Vocabulary() {
     }
 
     public int getIdVocabulary() {
@@ -24,19 +23,27 @@ public class Vocabulary implements Serializable {
         this.idVocabulary = idVocabulary;
     }
 
+    public String getEnTopicVocabulary() {
+        return enTopicVocabulary;
+    }
+
+    public void setEnTopicVocabulary(String enTopicVocabulary) {
+        this.enTopicVocabulary = enTopicVocabulary;
+    }
+
+    public String getViTopicVoCabulary() {
+        return viTopicVoCabulary;
+    }
+
+    public void setViTopicVoCabulary(String viTopicVoCabulary) {
+        this.viTopicVoCabulary = viTopicVoCabulary;
+    }
+
     public String getImageVocabulary() {
         return imageVocabulary;
     }
 
     public void setImageVocabulary(String imageVocabulary) {
         this.imageVocabulary = imageVocabulary;
-    }
-
-    public String getNameVocabulary() {
-        return nameVocabulary;
-    }
-
-    public void setNameVocabulary(String nameVocabulary) {
-        this.nameVocabulary = nameVocabulary;
     }
 }

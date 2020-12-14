@@ -12,9 +12,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.learnenglish.R;
-import com.example.learnenglish.ui.communication.test.VocabularyFragment;
 import com.example.learnenglish.ui.vocabulary.AlphabetFragment;
 import com.example.learnenglish.ui.vocabulary.SearchFragment;
+import com.example.learnenglish.ui.vocabulary.VocabularyFragment;
 import com.example.learnenglish.ui.vocabulary.test.TestFragment;
 import com.google.android.material.navigation.NavigationView;
 
