@@ -36,7 +36,9 @@ class VocaItemActivity : BaseActivity() {
         }
 
         btnFlashCard.setOnClickListener {
-
+            startActivity(Intent(this, FlashCardActivity::class.java).apply {
+                putExtra("VOCA_ITEM_FLASH_CARD", vocabulary?.idVocabulary)
+            })
         }
 
         vocabularyItemDatabase = VocabularyItemDatabase(this)

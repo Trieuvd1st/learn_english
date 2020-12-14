@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.CommunicationDatabase
 import com.example.learnenglish.model.Communication
+import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.communication.test.CommTestActivity
 import com.example.learnenglish.widgets.VoiceDialog
 import kotlinx.android.synthetic.main.activity_communication.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 import pub.devrel.easypermissions.EasyPermissions
 import kotlin.random.Random
 
-class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPermissions.PermissionCallbacks {
+class CommunicationActivity : BaseActivity(), View.OnClickListener,  EasyPermissions.PermissionCallbacks {
 
     private lateinit var adapterCommunication: CommunicationAdapter
     private lateinit var commDatabase: CommunicationDatabase
@@ -27,10 +29,12 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communication)
 
-        Log.d("RANDOM_TEST", "${Random.nextInt(0, 10)}")
-
         //read data
         val topicIdReceive = intent.getIntExtra(TOPIC_ID_EXTRA, 0)
+        val nameTopic = intent.getStringExtra(TOPIC_NAME_EXTRA)
+
+        nameTopic?.let { setTitleActionBar(toolbar, it) }
+
         commDatabase = CommunicationDatabase(this)
         listComm = commDatabase.getListCommByTopicId(topicIdReceive)
 
@@ -94,13 +98,15 @@ class CommunicationActivity : AppCompatActivity(), View.OnClickListener,  EasyPe
     }
 
     companion object {
-        fun startNewActivity(context: Context, topicId: Int) {
+        fun startNewActivity(context: Context, topicId: Int, nameTopic: String) {
             context.startActivity(Intent(context, CommunicationActivity::class.java).apply {
                 putExtra(TOPIC_ID_EXTRA, topicId)
+                putExtra(TOPIC_NAME_EXTRA, nameTopic)
             })
         }
 
         const val TOPIC_ID_EXTRA = "com.example.learnenglish.activity.TOPIC_ID"
+        const val TOPIC_NAME_EXTRA = "com.example.learnenglish.activity.TOPIC_NAME_EXTRA"
     }
 
 }

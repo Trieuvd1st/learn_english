@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/bg_white_corner_hard"
     android:orientation="vertical"
     android:padding="@dimen/spacing_small">
 
-    <!--<LinearLayout
+    <LinearLayout
         android:id="@+id/llCorrect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,8 +15,8 @@
         android:visibility="gone">
 
         <ImageView
-            android:layout_width="@dimen/icon_size_small"
-            android:layout_height="@dimen/icon_size_small"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
             android:src="@drawable/ic_smile_orange"
             android:layout_gravity="center_horizontal"/>
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/blue_light"
             android:textStyle="bold"
-            android:textSize="@dimen/font_normal"
+            android:textSize="@dimen/font_large"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:text="Chính xác"/>
 
@@ -39,8 +39,8 @@
         android:layout_gravity="center_horizontal">
 
         <ImageView
-            android:layout_width="@dimen/icon_size_small"
-            android:layout_height="@dimen/icon_size_small"
+            android:layout_width="@dimen/icon_size_normal"
+            android:layout_height="@dimen/icon_size_normal"
             android:src="@drawable/ic_cry_orange"
             android:layout_gravity="center_horizontal"/>
 
@@ -49,28 +49,29 @@
             android:layout_height="wrap_content"
             android:textColor="@color/red_bright"
             android:textStyle="bold"
-            android:textSize="@dimen/font_normal"
+            android:textSize="@dimen/font_large"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:text="Sai rồi"
             android:layout_gravity="center_horizontal"/>
 
         <TextView
+            android:id="@+id/tvResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đáp án : Hotel"
             android:textStyle="bold"
             android:textColor="@color/blue_light"
-            android:textSize="@dimen/font_normal"/>
+            android:textSize="@dimen/font_large"/>
 
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/btnNext"
         android:layout_width="80dp"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:src="@drawable/ic_next_white"
         android:background="@drawable/bg_orange_corner_normal"
         android:layout_marginTop="@dimen/spacing_tiny"
-        android:layout_gravity="center_horizontal"/>-->
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>

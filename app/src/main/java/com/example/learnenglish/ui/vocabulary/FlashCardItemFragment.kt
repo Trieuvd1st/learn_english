@@ -1,5 +1,6 @@
 package com.example.learnenglish.ui.vocabulary
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +29,9 @@ class FlashCardItemFragment : Fragment() {
         vocabularyItem = arguments?.getSerializable(EXTRA_VOCABULARY_ITEM) as VocabularyItem
         tvEn.text = vocabularyItem.englishWordItem
         tvVi.text = vocabularyItem.vietnameseWordItem
+        btnSpeaker.setOnClickListener {
+            MediaPlayer.create(context, resources.getIdentifier(vocabularyItem.soundItem, "raw", context?.packageName)).start()
+        }
     }
 
     companion object {

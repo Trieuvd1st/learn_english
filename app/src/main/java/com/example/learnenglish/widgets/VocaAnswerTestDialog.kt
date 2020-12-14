@@ -7,10 +7,17 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
+import androidx.core.view.isVisible
 import com.example.learnenglish.R
 import kotlinx.android.synthetic.main.dialog_voca_answer_test.*
 
-class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String) : Dialog(context) {
+class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String, val listener: VoCaAnswerTestDialogListener) : Dialog(context) {
+
+
+    interface VoCaAnswerTestDialogListener {
+        fun onBtnNext()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -24,6 +31,11 @@ class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer:
             )
         }
 
+        btnNext.setOnClickListener {
+            listener.onBtnNext()
+            dismiss()
+        }
+
         when (isCorrect) {
             true -> {
                 llCorrect.isVisible = true
@@ -34,5 +46,7 @@ class VocaAnswerTestDialog(context: Context, var isCorrect: Boolean, var answer:
                 llIncorrect.isVisible = true
             }
         }
+
+        tvResult.text = "Đáp án : $answer"
     }
 }

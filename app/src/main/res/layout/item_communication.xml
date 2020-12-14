@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Chào ông(buổi tối)"
         android:textColor="#000000"
+        android:textSize="@dimen/font_normal"
         android:textStyle="bold"
         android:padding="@dimen/spacing_small"/>
 
@@ -20,7 +21,7 @@
         android:id="@+id/clEn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E8E8E2"
+        android:background="@color/gray_10"
         android:padding="@dimen/spacing_tiny"
         android:visibility="gone"
         android:layout_margin="@dimen/spacing_tiny">

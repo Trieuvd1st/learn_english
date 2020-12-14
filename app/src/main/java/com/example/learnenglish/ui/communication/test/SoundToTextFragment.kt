@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui
+package com.example.learnenglish.ui.communication.test
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
-import com.example.learnenglish.ui.communication.test.CommTestViewModel
 import kotlinx.android.synthetic.main.fragment_en_sen_to_vi_sen.*
 
 class SoundToTextFragment : Fragment() {

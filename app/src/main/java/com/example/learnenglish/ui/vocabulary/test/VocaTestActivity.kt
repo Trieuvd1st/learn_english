@@ -9,7 +9,9 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyItemDatabase
 import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.model.WordChar
+import com.example.learnenglish.widgets.VocaAnswerTestDialog
 import kotlinx.android.synthetic.main.activity_voca_test.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
 class VocaTestActivity : AppCompatActivity() {
 
@@ -40,13 +42,22 @@ class VocaTestActivity : AppCompatActivity() {
 
         ivSpeaker.setOnClickListener {
             MediaPlayer.create(
-                this,
-                resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
+                    this,
+                    resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
             ).start()
         }
 
         btnCheck.setOnClickListener {
-            //VocaAnswerTestDialog(this, tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true), currentVoca.englishWordItem).show()
+            val dialogResult = VocaAnswerTestDialog(
+                    this,
+                    tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
+                    currentVoca.englishWordItem,
+                    object : VocaAnswerTestDialog.VoCaAnswerTestDialogListener {
+                        override fun onBtnNext() {
+                            showTest()
+                        }
+
+                    }).show()
         }
     }
 

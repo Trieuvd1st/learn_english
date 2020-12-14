@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
-import com.example.learnenglish.ui.SoundToTextFragment
 import kotlinx.android.synthetic.main.activity_comm_test.*
 import kotlin.random.Random
 
