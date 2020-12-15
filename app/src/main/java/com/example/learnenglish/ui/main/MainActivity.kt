@@ -9,11 +9,12 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyDatabase
 import com.example.learnenglish.ui.communication.CommunicationTopicActivity
 import com.example.learnenglish.ui.grammar.GrammarTopicActivity
+import com.example.learnenglish.ui.translate.TranslateActivity
 import com.example.learnenglish.ui.vocabulary.VocabularyActivity
 import kotlinx.android.synthetic.main.activity_main2.*
 import java.io.File
 
-class Main2Activity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var vocabularyDatabase: VocabularyDatabase
 
@@ -35,6 +36,7 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener {
         llVocabulary.setOnClickListener(this)
         llGrammar.setOnClickListener(this)
         llCommunication.setOnClickListener(this)
+        llTranslate.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -49,6 +51,10 @@ class Main2Activity : AppCompatActivity(), View.OnClickListener {
 
             llCommunication.id -> {
                 startActivity(Intent(this, CommunicationTopicActivity::class.java))
+            }
+
+            llTranslate.id -> {
+                startActivity(Intent(this, TranslateActivity::class.java))
             }
         }
     }

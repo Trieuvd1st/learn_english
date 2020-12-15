@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary.test;
+package com.example.learnenglish.ui.vocabulary.vocatest;
 
 
 import android.content.Intent;

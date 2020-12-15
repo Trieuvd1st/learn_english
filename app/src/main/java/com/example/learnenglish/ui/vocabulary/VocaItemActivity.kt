@@ -9,7 +9,7 @@ import com.example.learnenglish.database.VocabularyItemDatabase
 import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.ui.base.BaseActivity
-import com.example.learnenglish.ui.vocabulary.test.VocaTestActivity
+import com.example.learnenglish.ui.vocabulary.vocatest.VocaTestActivity
 import kotlinx.android.synthetic.main.activity_voca_item.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 

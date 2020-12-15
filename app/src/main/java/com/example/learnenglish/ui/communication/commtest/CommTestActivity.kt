@@ -1,10 +1,9 @@
-package com.example.learnenglish.ui.communication.test
+package com.example.learnenglish.ui.communication.commtest
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment

@@ -6,18 +6,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.CommunicationDatabase
 import com.example.learnenglish.model.Communication
 import com.example.learnenglish.ui.base.BaseActivity
-import com.example.learnenglish.ui.communication.test.CommTestActivity
+import com.example.learnenglish.ui.communication.commtest.CommTestActivity
 import com.example.learnenglish.widgets.VoiceDialog
 import kotlinx.android.synthetic.main.activity_communication.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import pub.devrel.easypermissions.EasyPermissions
-import kotlin.random.Random
 
 class CommunicationActivity : BaseActivity(), View.OnClickListener,  EasyPermissions.PermissionCallbacks {
 

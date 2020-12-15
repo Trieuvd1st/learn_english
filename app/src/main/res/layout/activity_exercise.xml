@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+
+    <include
+        android:id="@+id/toolbar2"
+        layout="@layout/include_toolbar"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_normal"
+        android:textColor="@color/black"
+        tools:text="We are too late. The plane …………… off ten minutes ago."
+        android:layout_margin="@dimen/spacing_tiny"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_tiny"
+        app:layout_constraintTop_toBottomOf="@id/tvQuestion">
+
+        <TextView
+            android:id="@+id/btnDA1"
+            style="@style/ButtonAnswer"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="Good Luck." />
+
+        <TextView
+            android:id="@+id/btnDA2"
+            style="@style/ButtonAnswer"
+            android:text="Good Luck." />
+
+        <TextView
+            android:id="@+id/btnDA3"
+            style="@style/ButtonAnswer"
+            android:text="Good Luck." />
+
+        <TextView
+            android:id="@+id/btnDA4"
+            style="@style/ButtonAnswer"
+            android:text="Good Luck." />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/spacing_tiny">
+
+        <Button
+            android:id="@+id/btnCorrectAns"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/spacing_tiny"
+            android:layout_marginRight="@dimen/spacing_micro"
+            android:layout_weight="1"
+            android:background="@drawable/bg_orange_corner_hard"
+            android:text="Đáp án"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_small"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/btnPrevious"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/spacing_tiny"
+            android:layout_marginRight="@dimen/spacing_micro"
+            android:layout_weight="1"
+            android:background="@drawable/bg_orange_corner_hard"
+            android:text="Trước"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_small"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/spacing_tiny"
+            android:layout_marginRight="@dimen/spacing_micro"
+            android:layout_weight="1"
+            android:background="@drawable/bg_orange_corner_hard"
+            android:text="Tiếp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_small"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

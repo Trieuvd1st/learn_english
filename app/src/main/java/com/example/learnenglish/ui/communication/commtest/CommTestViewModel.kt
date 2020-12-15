@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.communication.test
+package com.example.learnenglish.ui.communication.commtest
 
 import android.content.Context
 import android.util.Log

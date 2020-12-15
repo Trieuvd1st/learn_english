@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.communication.test
+package com.example.learnenglish.ui.communication.commtest
 
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -13,12 +13,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
 import kotlinx.android.synthetic.main.fragment_en_sen_to_vi_sen.*
 
-class ViSenToEnSenFragment : Fragment() {
+class EnSenToViSenFragment : Fragment() {
 
     private lateinit var viewModelCommTest: CommTestViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_vi_sen_to_en_sen, container, false)
+        return inflater.inflate(R.layout.fragment_en_sen_to_vi_sen, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -69,29 +69,29 @@ class ViSenToEnSenFragment : Fragment() {
 
     private fun initViewModel() {
         viewModelCommTest = ViewModelProviders.of(activity!!).get(CommTestViewModel::class.java).apply {
-            commAnswerData.observe(this@ViSenToEnSenFragment, Observer {
-                tvQuestion.text = it.viSentence
+            commAnswerData.observe(this@EnSenToViSenFragment, Observer {
+                tvQuestion.text = it.enSentence
             })
 
-            soundAnswerData.observe(this@ViSenToEnSenFragment, Observer {
+            listChoiceData.observe(this@EnSenToViSenFragment, Observer {
+                btnDA1.text = it[0].viSentence
+                btnDA2.text = it[1].viSentence
+                btnDA3.text = it[2].viSentence
+                btnDA4.text = it[3].viSentence
+            })
+
+            soundAnswerData.observe(this@EnSenToViSenFragment, Observer {
                 val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
                 val mediaPlayer = MediaPlayer.create(context, resourceFromName)
                 mediaPlayer.start()
             })
-
-            listChoiceData.observe(this@ViSenToEnSenFragment, Observer {
-                btnDA1.text = it[0].enSentence
-                btnDA2.text = it[1].enSentence
-                btnDA3.text = it[2].enSentence
-                btnDA4.text = it[3].enSentence
-            })
         }
     }
 
-    fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
+    private fun changeViewAnswer(textView: TextView, isSelected: Boolean) {
         when (isSelected) {
             true -> {
-                textView.setBackgroundResource(R.drawable.bg_blue_corner_hard)
+                textView.setBackgroundResource(R.drawable.bg_orange_corner_hard)
                 textView.setTextColor(ContextCompat.getColor(context!!, R.color.white))
                 textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_checked_true, 0, 0, 0)
             }

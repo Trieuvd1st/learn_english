@@ -21,7 +21,7 @@ import com.example.learnenglish.R;
 import com.example.learnenglish.adapter.CheckAnswerAdapter;
 import com.example.learnenglish.database.TestItemDatabase;
 import com.example.learnenglish.model.Question;
-import com.example.learnenglish.ui.vocabulary.test.TestDoneActivity;
+import com.example.learnenglish.ui.vocabulary.vocatest.TestDoneActivity;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;

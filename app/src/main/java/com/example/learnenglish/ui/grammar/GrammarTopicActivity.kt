@@ -1,14 +1,15 @@
 package com.example.learnenglish.ui.grammar
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.GrammarDatabase
 import com.example.learnenglish.model.Grammar
 import com.example.learnenglish.ui.base.BaseActivity
+import com.example.learnenglish.ui.grammar.exercise.ExerciseTopicGrammarActivity
 import kotlinx.android.synthetic.main.activity_grammar_topic.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
@@ -44,7 +45,7 @@ class GrammarTopicActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.exercise -> {
-
+                startActivity(Intent(this, ExerciseTopicGrammarActivity::class.java))
                 return true
             }
         }

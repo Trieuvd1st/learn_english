@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
+
+    <EditText
+        android:id="@+id/edtInputText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_white_corner_hard_stroke_gray"
+        android:layout_margin="@dimen/spacing_tiny"
+        android:translationZ="2dp"
+        android:hint="Nhập nội dung"
+        android:padding="@dimen/spacing_tiny"
+        android:textSize="@dimen/font_normal"
+        android:gravity="top|left"
+        android:inputType="text" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,32 +26,28 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnPratice"
+            android:id="@+id/btnEnToVi"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginLeft="@dimen/spacing_tiny"
-            android:layout_marginTop="@dimen/spacing_tiny"
             android:layout_marginRight="@dimen/spacing_micro"
-            android:layout_marginBottom="@dimen/spacing_tiny"
             android:layout_weight="1"
             android:background="@drawable/bg_orange_corner_hard"
-            android:text="Luyện tập"
+            android:text="Anh Việt"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/font_normal"
             android:textStyle="normal" />
 
         <Button
-            android:id="@+id/btnFlashCard"
+            android:id="@+id/btnViToEn"
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginLeft="@dimen/spacing_micro"
-            android:layout_marginTop="@dimen/spacing_tiny"
             android:layout_marginRight="@dimen/spacing_tiny"
-            android:layout_marginBottom="@dimen/spacing_tiny"
             android:layout_weight="1"
             android:background="@drawable/bg_orange_corner_hard"
-            android:text="Flash Card"
+            android:text="Việt Anh"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/font_normal"
@@ -45,17 +55,13 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="@dimen/spacing_tiny"
-        android:layout_marginRight="@dimen/spacing_tiny"
-        android:background="@color/gray_30" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVocaItem"
+    <TextView
+        android:id="@+id/tvTextTranslated"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/spacing_tiny" />
-
+        android:background="@drawable/bg_white_corner_hard_stroke_gray"
+        android:layout_margin="@dimen/spacing_tiny"
+        android:padding="@dimen/spacing_tiny"
+        android:textSize="@dimen/font_normal"
+        android:textColor="@color/black"/>
 </LinearLayout>
