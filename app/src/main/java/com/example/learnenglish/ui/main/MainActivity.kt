@@ -9,6 +9,7 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyDatabase
 import com.example.learnenglish.ui.communication.CommunicationTopicActivity
 import com.example.learnenglish.ui.grammar.GrammarTopicActivity
+import com.example.learnenglish.ui.practice.PracticeActivity
 import com.example.learnenglish.ui.translate.TranslateActivity
 import com.example.learnenglish.ui.vocabulary.VocabularyActivity
 import kotlinx.android.synthetic.main.activity_main2.*
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             llTranslate.id -> {
-                startActivity(Intent(this, TranslateActivity::class.java))
+                startActivity(Intent(this, PracticeActivity::class.java))
             }
         }
     }

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.example.learnenglish"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -67,4 +67,8 @@ dependencies {
 
     //google cloud translate
     implementation 'com.google.mlkit:translate:16.1.1'
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-storage'
 }

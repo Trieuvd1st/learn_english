@@ -69,6 +69,9 @@
 
         <activity android:name=".ui.grammar.exercise.ExerciseActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.practice.PracticeActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

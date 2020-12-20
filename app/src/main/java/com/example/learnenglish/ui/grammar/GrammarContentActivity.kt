@@ -22,7 +22,7 @@ class GrammarContentActivity : BaseActivity() {
         setTitleActionBar(toolbar, grammar.topic)
 
         tvContent.text = DisplayUtils.fromHtml(grammar.detailContent)
-        Log.d("GRAMMAR_CONTENT", "${grammar.detailContent}")
+        Log.d("GRAMMAR_CONTENT", grammar.detailContent)
     }
 
     companion object {
