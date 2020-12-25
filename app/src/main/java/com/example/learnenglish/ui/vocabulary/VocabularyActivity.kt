@@ -17,6 +17,7 @@ class VocabularyActivity : BaseActivity() {
     }
 
     private fun findOrCreateViewFragment() =
-            supportFragmentManager.findFragmentById(R.id.frameContent) ?: VocabularyFragment().apply {
-            }
+        supportFragmentManager.findFragmentById(R.id.frameContent) ?: VocabularyFragment().apply {
+
+        }
 }

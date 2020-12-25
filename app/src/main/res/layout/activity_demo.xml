@@ -5,12 +5,5 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.learnenglish.widgets.QuantitySetView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        app:setColor="@color/orange"
-        app:setHeight="30dp"
-        app:setWidth="100dp" />
 
 </LinearLayout>

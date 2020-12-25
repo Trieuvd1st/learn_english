@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/spacing_tiny"
+    android:layout_marginEnd="@dimen/spacing_tiny"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/btnDA1"
+        style="@style/ButtonAnswer" />
+
+    <TextView
+        android:id="@+id/btnDA2"
+        style="@style/ButtonAnswer"/>
+
+    <TextView
+        android:id="@+id/btnDA3"
+        style="@style/ButtonAnswer"/>
+
+    <TextView
+        android:id="@+id/btnDA4"
+        style="@style/ButtonAnswer"/>
+
+</LinearLayout>
