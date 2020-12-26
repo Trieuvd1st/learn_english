@@ -78,6 +78,14 @@ class MutileChoiceView @JvmOverloads constructor(
         }
     }
 
+    fun set4Choice(is4Choice: Boolean) {
+        this.have4Choice = is4Choice
+        when(is4Choice) {
+            true -> btnDA4.visibility = View.VISIBLE
+            false -> btnDA4.visibility = View.GONE
+        }
+    }
+
     fun setChoice1(value: String) {
         btnDA1.text = value
     }

@@ -6,8 +6,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:layout_width="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,7 +58,8 @@
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginStart="@dimen/spacing_tiny"
                 android:layout_marginEnd="@dimen/spacing_tiny"
-                android:text="Mark your answer on your answer sheet."/>
+                android:text="Mark your answer on your answer sheet."
+                android:visibility="gone"/>
 
             <com.example.learnenglish.ui.custom.MutileChoiceView
                 android:id="@+id/mcvChoice1"
@@ -77,14 +77,16 @@
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginStart="@dimen/spacing_tiny"
                 android:layout_marginEnd="@dimen/spacing_tiny"
-                android:text="Mark your answer on your answer sheet."/>
+                android:text="Mark your answer on your answer sheet."
+                android:visibility="gone"/>
 
             <com.example.learnenglish.ui.custom.MutileChoiceView
                 android:id="@+id/mcvChoice2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_tiny"
-                app:haveFourChoice="true"/>
+                app:haveFourChoice="true"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tvQuestion3"
@@ -95,14 +97,16 @@
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginStart="@dimen/spacing_tiny"
                 android:layout_marginEnd="@dimen/spacing_tiny"
-                android:text="Mark your answer on your answer sheet."/>
+                android:text="Mark your answer on your answer sheet."
+                android:visibility="gone"/>
 
             <com.example.learnenglish.ui.custom.MutileChoiceView
                 android:id="@+id/mcvChoice3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_tiny"
-                app:haveFourChoice="true"/>
+                app:haveFourChoice="true"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tvQuestion4"
@@ -113,14 +117,16 @@
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginStart="@dimen/spacing_tiny"
                 android:layout_marginEnd="@dimen/spacing_tiny"
-                android:text="Mark your answer on your answer sheet."/>
+                android:text="Mark your answer on your answer sheet."
+                android:visibility="gone"/>
 
             <com.example.learnenglish.ui.custom.MutileChoiceView
                 android:id="@+id/mcvChoice4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_tiny"
-                app:haveFourChoice="true"/>
+                app:haveFourChoice="true"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

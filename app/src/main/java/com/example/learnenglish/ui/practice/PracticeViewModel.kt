@@ -17,7 +17,10 @@ class PracticeViewModel : ViewModel() {
 
     val toeicListResponse = MutableLiveData<ToeicListResponse>()
     var toeicList = ToeicListResponse()
-    val listSenAll = mutableListOf<ToeicSentence>()
+
+    init {
+        getData()
+    }
 
     fun getData() {
         myRef.addValueEventListener(object : ValueEventListener {
@@ -26,25 +29,24 @@ class PracticeViewModel : ViewModel() {
                 //get pass 1
                 val listsenPart1 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 1").children) {
+                    var sentence = ToeicSentence()
+                    sentence = senSnapshot.getValue(ToeicSentence::class.java)!!
                     listsenPart1.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
-                    listSenAll.addAll(listsenPart1)
                 }
                 toeicList.part1 = listsenPart1
                 //get pass 2
                 val listsenPart2 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 2").children) {
                     listsenPart2.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
-                    listSenAll.addAll(listsenPart2)
                 }
                 toeicList.part2 = listsenPart2
                 //get pass 3
-                val part3 = Part3()
                 for (senSnapshot in snapshot.child("Part 3").children) {
+                    val part3 = Part3()
                     part3.audio = senSnapshot.child("audio").value.toString()
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part3.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
-                            listSenAll.addAll(part3.listSen!!)
                         }
                     }
                     toeicList.part3?.add(part3)
@@ -56,7 +58,6 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part4.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
-                            listSenAll.addAll(part4.listSen!!)
                         }
                     }
                     toeicList.part4?.add(part4)
@@ -65,7 +66,6 @@ class PracticeViewModel : ViewModel() {
                 val listsenPart5 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 5").children) {
                     listsenPart5.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
-                    listSenAll.addAll(listsenPart5)
                 }
                 toeicList.part5 = listsenPart5
                 //get pass 6
@@ -75,7 +75,6 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part6.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
-                            listSenAll.addAll(part6.listSen!!)
                         }
                     }
                     toeicList.part6?.add(part6)
@@ -84,11 +83,11 @@ class PracticeViewModel : ViewModel() {
                 for (senSnapshot in snapshot.child("Part 7").children) {
                     val part7 = Part7()
                     part7.text_1 = senSnapshot.child("text_1").value.toString()
+                    part7.textNumber = senSnapshot.child("textNumber").value as Long?
                     if (senSnapshot.hasChild("text_2")) part7.text_2 = senSnapshot.child("text_2").value.toString()
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part7.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
-                            listSenAll.addAll(part7.listSen!!)
                         }
                     }
                     toeicList.part7?.add(part7)

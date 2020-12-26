@@ -1,6 +1,7 @@
 package com.example.learnenglish.model
 
 class ToeicSentence {
+    var numberSen: Int = 0
     var answer: Long? = null
     var audio: String? = null
     var imagePath: String? = null
