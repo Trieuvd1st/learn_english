@@ -10,11 +10,10 @@ public class VocabularyItem implements Serializable {
     private String vietnameseWordItem;
     private String imageItem;
     private String soundItem;
+    private String spell;
+    private String example;
 
-
-
-
-    public VocabularyItem(int idItem, int idVocabulary, int level,String englishWordItem, String vietnameseWordItem, String imageItem, String soundItem) {
+    public VocabularyItem(int idItem, int idVocabulary, int level,String englishWordItem, String vietnameseWordItem, String imageItem, String soundItem, String spell, String example) {
         this.idItem = idItem;
         this.idVocabulary = idVocabulary;
         this.level = level;
@@ -22,7 +21,8 @@ public class VocabularyItem implements Serializable {
         this.vietnameseWordItem = vietnameseWordItem;
         this.imageItem = imageItem;
         this.soundItem = soundItem;
-
+        this.spell = spell;
+        this.example = example;
     }
 
     public VocabularyItem() {
@@ -82,5 +82,21 @@ public class VocabularyItem implements Serializable {
 
     public void setSoundItem(String soundItem) {
         this.soundItem = soundItem;
+    }
+
+    public String getSpell() {
+        return spell;
+    }
+
+    public void setSpell(String spell) {
+        this.spell = spell;
+    }
+
+    public String getExample() {
+        return example;
+    }
+
+    public void setExample(String example) {
+        this.example = example;
     }
 }

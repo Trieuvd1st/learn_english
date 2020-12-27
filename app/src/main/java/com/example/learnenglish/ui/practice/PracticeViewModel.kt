@@ -17,27 +17,30 @@ class PracticeViewModel : ViewModel() {
 
     val toeicListResponse = MutableLiveData<ToeicListResponse>()
     var toeicList = ToeicListResponse()
+    var answerList = arrayListOf<Int>()
+    var isShowDialog = MutableLiveData<Boolean>()
 
     init {
         getData()
     }
 
     fun getData() {
+        isShowDialog.value = true
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 toeicList.time = snapshot.child("time").value as Long?
                 //get pass 1
                 val listsenPart1 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 1").children) {
-                    var sentence = ToeicSentence()
-                    sentence = senSnapshot.getValue(ToeicSentence::class.java)!!
                     listsenPart1.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
+                    answerList.add(senSnapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                 }
                 toeicList.part1 = listsenPart1
                 //get pass 2
                 val listsenPart2 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 2").children) {
                     listsenPart2.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
+                    answerList.add(senSnapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                 }
                 toeicList.part2 = listsenPart2
                 //get pass 3
@@ -47,6 +50,7 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part3.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
+                            answerList.add(sen2Snapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                         }
                     }
                     toeicList.part3?.add(part3)
@@ -58,6 +62,7 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part4.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
+                            answerList.add(sen2Snapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                         }
                     }
                     toeicList.part4?.add(part4)
@@ -66,6 +71,7 @@ class PracticeViewModel : ViewModel() {
                 val listsenPart5 = mutableListOf<ToeicSentence>()
                 for (senSnapshot in snapshot.child("Part 5").children) {
                     listsenPart5.add(senSnapshot.getValue(ToeicSentence::class.java)!!)
+                    answerList.add(senSnapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                 }
                 toeicList.part5 = listsenPart5
                 //get pass 6
@@ -75,6 +81,7 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part6.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
+                            answerList.add(sen2Snapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                         }
                     }
                     toeicList.part6?.add(part6)
@@ -88,12 +95,14 @@ class PracticeViewModel : ViewModel() {
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part7.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)
+                            answerList.add(sen2Snapshot.getValue(ToeicSentence::class.java)?.answer?.toInt()!!)
                         }
                     }
                     toeicList.part7?.add(part7)
                 }
 
                 toeicListResponse.value = toeicList
+                isShowDialog.value = false
             }
             override fun onCancelled(error: DatabaseError) {}
 

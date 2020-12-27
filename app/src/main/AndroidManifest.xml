@@ -70,7 +70,28 @@
         <activity android:name=".ui.grammar.exercise.ExerciseActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".ui.practice.PracticeActivity"
+        <activity android:name=".ui.practice.PracticeToeicActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.practice.ToeicResultActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.vocabulary.detail.DetailVocaActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.vocabulary.search.VocaSearchActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.practice.PracticeTopicActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.practice.ToeicTopicActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.authentication.signin.SignInActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.authentication.signup.SignUpActivity"
             android:screenOrientation="portrait"/>
     </application>
 

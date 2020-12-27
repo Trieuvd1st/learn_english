@@ -47,19 +47,46 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="@dimen/spacing_tiny"/>
 
-            <TextView
-                android:id="@+id/tvVi"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="rời khỏi"
-                android:textSize="@dimen/font_normal"
-                android:textStyle="bold"
-                android:visibility="gone"
-                android:textColor="@color/blue_light"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <TextView
+                    android:id="@+id/tvVi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rời khỏi"
+                    android:textSize="@dimen/font_normal"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:textColor="@color/blue_light"/>
+
+                <TextView
+                    android:id="@+id/tvSpell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="italic"
+                    android:text="/s/"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvExample"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_normal"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnSeeVi"

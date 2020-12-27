@@ -1,5 +1,6 @@
 package com.example.learnenglish.ui.vocabulary
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learnenglish.R
 import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.ui.vocabulary.detail.DetailVocaActivity
 import kotlinx.android.synthetic.main.stream_item_vocabulary.view.*
 import java.io.IOException
 import java.io.InputStream
@@ -40,7 +42,7 @@ class VocaItemAdapter(private var listVocaItem: MutableList<VocabularyItem>) :
             }
             val d = Drawable.createFromStream(imss, null)
             image.setImageDrawable(d)
-
+            tvSpell.text = vocaItem.spell
             tvEn.text = vocaItem.englishWordItem
             tvVi.text = vocaItem.vietnameseWordItem
             btnSpeaker.setOnClickListener {
@@ -48,6 +50,11 @@ class VocaItemAdapter(private var listVocaItem: MutableList<VocabularyItem>) :
                     context,
                     resources.getIdentifier(vocaItem.soundItem, "raw", context.packageName)
                 ).start()
+            }
+            itemView.setOnClickListener {
+                context.startActivity(Intent(context, DetailVocaActivity::class.java).apply {
+                    putExtra("EXTRA_ITEM_VOCA_TO_DETAIL", vocaItem)
+                })
             }
         }
     }

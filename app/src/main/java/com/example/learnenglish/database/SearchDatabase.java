@@ -10,25 +10,24 @@ import com.example.learnenglish.model.VocabularyItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchDatabase extends DBHelper{
+public class SearchDatabase extends DBHelper {
     private Context context;
 
     public SearchDatabase(Context context) {
         super(context);
     }
 
-
-            public List<VocabularyItem> getVocabularyItemByName(String name){
+    public List<VocabularyItem> getVocabularyItemByName(String name) {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String[] sqlSelect = {"Id","Tutienganh","Tutiengviet","Anh","Sound"};
+        String[] sqlSelect = {"Id", "Tutienganh", "Tutiengviet", "Anh", "Sound", "Spell", "Example"};
         String tableName = "Itemchude";
         qb.setTables(tableName);
-        Cursor cursor = qb.query(db,sqlSelect,"Tutienganh LIKE ?",new String[]{"%"+name+"%"},
-                null,null,null);
+        Cursor cursor = qb.query(db, sqlSelect, "Tutienganh LIKE ?", new String[]{"%" + name + "%"},
+                null, null, null);
         List<VocabularyItem> result = new ArrayList<>();
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             do {
                 VocabularyItem vocabularyItem = new VocabularyItem();
                 vocabularyItem.setIdItem(cursor.getInt(cursor.getColumnIndex("Id")));
@@ -36,9 +35,13 @@ public class SearchDatabase extends DBHelper{
                 vocabularyItem.setVietnameseWordItem(cursor.getString(cursor.getColumnIndex("Tutiengviet")));
                 vocabularyItem.setImageItem(cursor.getString(cursor.getColumnIndex("Anh")));
                 vocabularyItem.setSoundItem(cursor.getString(cursor.getColumnIndex("Sound")));
+                vocabularyItem.setSpell(cursor.getString(cursor.getColumnIndex("Spell")));
+                vocabularyItem.setExample(cursor.getString(cursor.getColumnIndex("Example")));
                 result.add(vocabularyItem);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
+
+        //cursor.close();
         return result;
     }
 

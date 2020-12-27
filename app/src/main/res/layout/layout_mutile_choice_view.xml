@@ -6,20 +6,53 @@
     android:layout_marginEnd="@dimen/spacing_tiny"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <TextView
         android:id="@+id/btnDA1"
-        style="@style/ButtonAnswer" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_tiny"
+        android:paddingBottom="@dimen/spacing_tiny"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:drawablePadding="@dimen/spacing_tiny"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_radio_button_false"/>
 
     <TextView
         android:id="@+id/btnDA2"
-        style="@style/ButtonAnswer"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_tiny"
+        android:paddingBottom="@dimen/spacing_tiny"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:drawablePadding="@dimen/spacing_tiny"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_radio_button_false"/>
 
     <TextView
         android:id="@+id/btnDA3"
-        style="@style/ButtonAnswer"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_tiny"
+        android:paddingBottom="@dimen/spacing_tiny"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:drawablePadding="@dimen/spacing_tiny"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_radio_button_false"/>
 
     <TextView
         android:id="@+id/btnDA4"
-        style="@style/ButtonAnswer"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_tiny"
+        android:paddingBottom="@dimen/spacing_tiny"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:drawablePadding="@dimen/spacing_tiny"
+        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_radio_button_false"/>
 
 </LinearLayout>

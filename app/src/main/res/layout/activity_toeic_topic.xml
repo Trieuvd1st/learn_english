@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/llDe1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_corner_hard_stroke_gray"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/spacing_micro">
+
+        <TextView
+            android:id="@+id/tvDe1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small"
+            android:paddingLeft="@dimen/spacing_tiny"
+            android:text="Đề số 1"
+            android:textSize="@dimen/font_normal"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="28 câu/20p"
+            android:textColor="@color/blue_light"
+            android:layout_marginEnd="@dimen/spacing_tiny"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llDe2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_corner_hard_stroke_gray"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/spacing_micro">
+
+        <TextView
+            android:id="@+id/tvDe2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small"
+            android:paddingLeft="@dimen/spacing_tiny"
+            android:text="Đề số 2"
+            android:textSize="@dimen/font_normal"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="34 câu"
+            android:textColor="@color/blue_light"
+            android:layout_marginEnd="@dimen/spacing_tiny"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llDe3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_corner_hard_stroke_gray"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/spacing_micro">
+
+        <TextView
+            android:id="@+id/tvDe3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small"
+            android:paddingLeft="@dimen/spacing_tiny"
+            android:text="Đề số 3"
+            android:textSize="@dimen/font_normal"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40 câu"
+            android:textColor="@color/blue_light"
+            android:layout_marginEnd="@dimen/spacing_tiny"/>
+
+    </LinearLayout>
+
+</LinearLayout>

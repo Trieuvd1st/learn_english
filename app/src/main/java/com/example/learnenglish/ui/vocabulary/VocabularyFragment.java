@@ -31,9 +31,7 @@ public class VocabularyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_vocabulary, container, false);
         gridView = view.findViewById(R.id.gripview);
 
-        if ("123".equalsIgnoreCase("ádqwe"))
-
-            vocabularyArrayList = new ArrayList<>();
+        vocabularyArrayList = new ArrayList<>();
         vocabularyDatabase = new VocabularyDatabase(getActivity());
         vocabularyArrayList = vocabularyDatabase.getListVocabulary();
         Log.d("TRIEUVD", vocabularyArrayList.size() + "");
@@ -41,15 +39,6 @@ public class VocabularyFragment extends Fragment {
         gridView.setAdapter(vocabularyAdapter);
         gridView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
         gridView.setVerticalScrollBarEnabled(false);
-
-        /*gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getActivity(), VocabularyItemActivity.class);
-                intent.putExtra("position", vocabularyArrayList.get(position));
-                startActivity(intent);
-            }
-        });*/
 
         vocabularyAdapter.setListener(new VocabularyAdapter.VocabularyAdapterListener() {
             @Override
