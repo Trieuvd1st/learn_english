@@ -1,7 +1,9 @@
 package com.example.learnenglish.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.example.learnenglish.model.Vocabulary;
 
@@ -23,7 +25,7 @@ public class VocabularyDatabase extends DBHelper{
         Cursor cursor = db.getDataFromSQLite("SELECT * FROM Chude");
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
             vocabularyArrayList.add(vocabulary);
             cursor.moveToNext();
         }
@@ -39,12 +41,20 @@ public class VocabularyDatabase extends DBHelper{
         Cursor cursor = db.getDataFromSQLite("SELECT * FROM Chude WHERE Id = '"+id+"'");
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            vocabulary = new Vocabulary(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4));
             //vocabularyList.add(vocabulary);
             cursor.moveToNext();
         }
         cursor.close();
         db.closeDatabase();
         return vocabulary;
+    }
+
+    public void updatePointById(Vocabulary vocabulary) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("PointRequired", 0);
+        db.update("Chude", values, "Id = ?", new String[] { String.valueOf(vocabulary.getIdVocabulary()) });
+        db.close();
     }
 }

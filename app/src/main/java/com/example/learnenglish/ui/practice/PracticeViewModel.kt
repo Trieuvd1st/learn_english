@@ -24,7 +24,7 @@ class PracticeViewModel : ViewModel() {
         getData()
     }
 
-    fun getData() {
+    private fun getData() {
         isShowDialog.value = true
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

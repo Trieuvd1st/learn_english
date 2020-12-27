@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary
+package com.example.learnenglish.ui.vocabulary.item
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -17,14 +17,14 @@ import java.io.InputStream
 class VocaItemAdapter(private var listVocaItem: MutableList<VocabularyItem>) :
     RecyclerView.Adapter<VocaItemAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocaItemAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.stream_item_vocabulary, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: VocaItemAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(listVocaItem[position])
     }
 

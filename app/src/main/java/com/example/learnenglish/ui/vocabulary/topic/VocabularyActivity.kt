@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary
+package com.example.learnenglish.ui.vocabulary.topic
 
 import android.content.Intent
 import android.os.Bundle
@@ -21,7 +21,8 @@ class VocabularyActivity : BaseActivity() {
     }
 
     private fun findOrCreateViewFragment() =
-        supportFragmentManager.findFragmentById(R.id.frameContent) ?: VocabularyFragment().apply {
+        supportFragmentManager.findFragmentById(R.id.frameContent) ?: VocabularyFragment()
+            .apply {
 
         }
 

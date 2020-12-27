@@ -1,4 +1,4 @@
-package com.example.learnenglish.ui.vocabulary
+package com.example.learnenglish.ui.vocabulary.flashcard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

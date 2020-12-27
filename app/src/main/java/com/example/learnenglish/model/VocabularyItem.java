@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class VocabularyItem implements Serializable {
     private int idItem;
     private int idVocabulary;
-    private int level;
     private String englishWordItem;
     private String vietnameseWordItem;
     private String imageItem;
@@ -13,10 +12,9 @@ public class VocabularyItem implements Serializable {
     private String spell;
     private String example;
 
-    public VocabularyItem(int idItem, int idVocabulary, int level,String englishWordItem, String vietnameseWordItem, String imageItem, String soundItem, String spell, String example) {
+    public VocabularyItem(int idItem, int idVocabulary,String englishWordItem, String vietnameseWordItem, String imageItem, String soundItem, String spell, String example) {
         this.idItem = idItem;
         this.idVocabulary = idVocabulary;
-        this.level = level;
         this.englishWordItem = englishWordItem;
         this.vietnameseWordItem = vietnameseWordItem;
         this.imageItem = imageItem;
@@ -42,14 +40,6 @@ public class VocabularyItem implements Serializable {
 
     public void setIdVocabulary(int idVocabulary) {
         this.idVocabulary = idVocabulary;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
     }
 
     public String getEnglishWordItem() {

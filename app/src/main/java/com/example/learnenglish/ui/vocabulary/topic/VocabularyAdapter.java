@@ -1,4 +1,4 @@
-package com.example.learnenglish.adapter;
+package com.example.learnenglish.ui.vocabulary.topic;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -38,6 +38,7 @@ public class VocabularyAdapter extends BaseAdapter {
             viewHolder.tvViTopic = view.findViewById(R.id.tvViTopic);
             viewHolder.btnDetail = view.findViewById(R.id.btnDetail);
             viewHolder.imageContent = view.findViewById(R.id.image);
+            viewHolder.ivPoint = view.findViewById(R.id.ivPointRequired);
             view.setTag(viewHolder);
         } else viewHolder = (ViewHolder) view.getTag();
 
@@ -59,6 +60,11 @@ public class VocabularyAdapter extends BaseAdapter {
                 listener.onItemClick(i);
             }
         });
+        if (vocabulary.getPointRequired() > 0) {
+            viewHolder.ivPoint.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.ivPoint.setVisibility(View.GONE);
+        }
         return view;
     }
 
@@ -92,6 +98,7 @@ public class VocabularyAdapter extends BaseAdapter {
         TextView tvEnTopic;
         TextView tvViTopic;
         Button btnDetail;
+        ImageView ivPoint;
     }
 
 }

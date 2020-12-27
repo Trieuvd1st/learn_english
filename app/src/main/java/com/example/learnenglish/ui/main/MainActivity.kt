@@ -14,7 +14,7 @@ import com.example.learnenglish.ui.communication.CommunicationTopicActivity
 import com.example.learnenglish.ui.grammar.GrammarTopicActivity
 import com.example.learnenglish.ui.practice.PracticeTopicActivity
 import com.example.learnenglish.ui.translate.TranslateActivity
-import com.example.learnenglish.ui.vocabulary.VocabularyActivity
+import com.example.learnenglish.ui.vocabulary.topic.VocabularyActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import java.io.File

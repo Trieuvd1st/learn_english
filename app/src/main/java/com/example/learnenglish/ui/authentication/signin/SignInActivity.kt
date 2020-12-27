@@ -23,18 +23,19 @@ class SignInActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        Firebase.auth.signOut()
-
+        initViewModel()
         
         btnSignIn.setOnClickListener { 
-            viewmodel.signIn(this, "ductrieu98htrung@gmail.com", "morhn123")
+            viewmodel.signIn(this, edtEmail.text.trim().toString(), edtPassword.text.trim().toString())
         }
         
         btnSignUp.setOnClickListener {
             Log.d("sign_out", "${Firebase.auth.currentUser?.isAnonymous}")
             startActivity(Intent(this, SignUpActivity::class.java))
         }
+    }
 
+    private fun initViewModel() {
         viewmodel = ViewModelProviders.of(this).get(SignInViewModel::class.java).apply {
             loginState.observe(this@SignInActivity, Observer { state ->
                 if (state) finish()

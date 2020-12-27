@@ -6,10 +6,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.learnenglish.R
+import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.database.VocabularyItemDatabase
 import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.model.WordChar
 import com.example.learnenglish.widgets.AnswerTestDialog
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_voca_test.*
 
 class VocaTestActivity : AppCompatActivity() {
@@ -34,7 +38,10 @@ class VocaTestActivity : AppCompatActivity() {
         initAdapter()
         showTest()
 
-        ivBack.setOnClickListener { finish() }
+        ivBack.setOnClickListener {
+            FirebaseDatabase.getInstance().reference.child("users").child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(UserManager.getMyPoint(this))
+            finish()
+        }
         ivSkip.setOnClickListener {
             showTest()
         }
@@ -47,7 +54,7 @@ class VocaTestActivity : AppCompatActivity() {
         }
 
         btnCheck.setOnClickListener {
-            val dialogResult = AnswerTestDialog(
+            AnswerTestDialog(
                     this,
                     tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
                     currentVoca.englishWordItem,

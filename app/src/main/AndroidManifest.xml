@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.vocabulary.VocabularyActivity"
+            android:name=".ui.vocabulary.topic.VocabularyActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.communication.CommunicationTopicActivity"
@@ -42,7 +42,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.vocabulary.FlashCardActivity"
+            android:name=".ui.vocabulary.flashcard.FlashCardActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -58,7 +58,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.vocabulary.VocaItemActivity"
+            android:name=".ui.vocabulary.item.VocaItemActivity"
             android:screenOrientation="portrait" />
 
         <activity android:name=".ui.translate.TranslateActivity"

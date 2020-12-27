@@ -1,10 +1,9 @@
-package com.example.learnenglish.ui.vocabulary
+package com.example.learnenglish.ui.vocabulary.flashcard
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyItemDatabase

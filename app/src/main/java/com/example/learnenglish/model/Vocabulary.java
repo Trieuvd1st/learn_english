@@ -7,12 +7,14 @@ public class Vocabulary implements Serializable {
     private String enTopicVocabulary;
     private String viTopicVoCabulary;
     private String imageVocabulary;
+    private int pointRequired;
 
-    public Vocabulary(int idVocabulary, String enTopicVocabulary, String viTopicVoCabulary, String imageVocabulary) {
+    public Vocabulary(int idVocabulary, String enTopicVocabulary, String viTopicVoCabulary, String imageVocabulary, int pointRequired) {
         this.idVocabulary = idVocabulary;
         this.enTopicVocabulary = enTopicVocabulary;
         this.viTopicVoCabulary = viTopicVoCabulary;
         this.imageVocabulary = imageVocabulary;
+        this.pointRequired = pointRequired;
     }
 
     public int getIdVocabulary() {
@@ -45,5 +47,13 @@ public class Vocabulary implements Serializable {
 
     public void setImageVocabulary(String imageVocabulary) {
         this.imageVocabulary = imageVocabulary;
+    }
+
+    public int getPointRequired() {
+        return pointRequired;
+    }
+
+    public void setPointRequired(int pointRequired) {
+        this.pointRequired = pointRequired;
     }
 }

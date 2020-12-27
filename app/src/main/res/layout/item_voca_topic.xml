@@ -10,6 +10,16 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/ivPointRequired"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_add_point"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:visibility="visible"/>
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image"
             android:layout_width="120dp"

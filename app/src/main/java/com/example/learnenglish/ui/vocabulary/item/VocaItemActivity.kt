@@ -1,9 +1,7 @@
-package com.example.learnenglish.ui.vocabulary
+package com.example.learnenglish.ui.vocabulary.item
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyDatabase
@@ -11,7 +9,7 @@ import com.example.learnenglish.database.VocabularyItemDatabase
 import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.ui.base.BaseActivity
-import com.example.learnenglish.ui.grammar.exercise.ExerciseTopicGrammarActivity
+import com.example.learnenglish.ui.vocabulary.flashcard.FlashCardActivity
 import com.example.learnenglish.ui.vocabulary.vocatest.VocaTestActivity
 import kotlinx.android.synthetic.main.activity_voca_item.*
 import kotlinx.android.synthetic.main.include_toolbar.*
@@ -46,9 +44,9 @@ class VocaItemActivity : BaseActivity() {
 
         vocabularyItemDatabase = VocabularyItemDatabase(this)
         vocabularyDatabase = VocabularyDatabase(this)
-        //Toast.makeText(this, vocabulary.getIdVocabulary()+" "+level, Toast.LENGTH_SHORT).show();
         vocabulary?.let {
             itemArrayList = vocabularyItemDatabase!!.getListVocabularyItem(it.idVocabulary)
+            tvNumberPoint.text = "+${itemArrayList.size}"
         }
         adapterVocaItem = VocaItemAdapter(itemArrayList)
         rvVocaItem.apply {

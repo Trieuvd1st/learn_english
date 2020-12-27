@@ -11,21 +11,48 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <LinearLayout
             android:id="@+id/btnPratice"
             android:layout_width="0dp"
             android:layout_height="35dp"
+            android:layout_weight="1"
             android:layout_marginLeft="@dimen/spacing_tiny"
             android:layout_marginTop="@dimen/spacing_tiny"
             android:layout_marginRight="@dimen/spacing_micro"
             android:layout_marginBottom="@dimen/spacing_tiny"
-            android:layout_weight="1"
             android:background="@drawable/bg_orange_corner_hard"
-            android:text="Luyện tập"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_normal"
-            android:textStyle="normal" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Luyện tập"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/tvNumberPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_small"
+                android:layout_gravity="center_vertical"
+                android:text="+1"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_tiny"
+                android:layout_height="@dimen/icon_size_tiny"
+                android:src="@drawable/ic_add_point"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_tiny"
+                android:layout_marginStart="@dimen/spacing_micro"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnFlashCard"

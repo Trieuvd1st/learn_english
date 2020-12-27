@@ -9,10 +9,10 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.core.view.isVisible
 import com.example.learnenglish.R
+import com.example.learnenglish.database.UserManager
 import kotlinx.android.synthetic.main.dialog_answer_test.*
 
 class AnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String, val listener: VoCaAnswerTestDialogListener) : Dialog(context) {
-
 
     interface VoCaAnswerTestDialogListener {
         fun onBtnNext()
@@ -38,6 +38,7 @@ class AnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: Str
 
         when (isCorrect) {
             true -> {
+                UserManager.setMyPoint(context, UserManager.getMyPoint(context) + 1)
                 llCorrect.isVisible = true
                 llIncorrect.isVisible = false
             }
