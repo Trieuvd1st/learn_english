@@ -169,6 +169,7 @@ class PracticeToeicActivity : BaseActivity() {
         finish()
         startActivity(Intent(this, ToeicResultActivity::class.java).apply {
             putExtra("TOEIC_SCORE", currentScore)
+            putExtra("TOTAL_SEN", viewModelPractice.answerList.size)
         })
     }
 

@@ -11,6 +11,8 @@ class ToeicResultActivity: BaseActivity() {
         setContentView(R.layout.activity_toeic_result)
 
         val score = intent.getIntExtra("TOEIC_SCORE", -1)
-        tvScore.text = "my score is $score"
+        val totalSen = intent.getIntExtra("TOTAL_SEN", -1)
+        tvResult.text = "${((990/totalSen)*score)}/990"
+        tvAddPoint.text = String.format("Bạn được cộng %d point", score)
     }
 }

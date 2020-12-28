@@ -45,6 +45,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
+                android:id="@+id/ivAddPoint"
                 android:layout_width="@dimen/icon_size_tiny"
                 android:layout_height="@dimen/icon_size_tiny"
                 android:src="@drawable/ic_add_point"

@@ -21,15 +21,43 @@
         android:paddingBottom="80dp"
         android:clipToPadding="false"/>
 
-    <Button
+    <TextView
         android:id="@+id/btnTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_small"
         android:text="Kiểm tra"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:textSize="@dimen/font_normal"
         android:textColor="@color/white"
         android:background="@drawable/bg_border_soft_orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvNumberPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_normal"
+        android:text="+1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ivAddPoint"
+        android:layout_marginEnd="@dimen/spacing_micro"
+        app:layout_constraintTop_toTopOf="@id/btnTest"
+        app:layout_constraintBottom_toBottomOf="@id/btnTest"/>
+
+    <ImageView
+        android:id="@+id/ivAddPoint"
+        android:layout_width="@dimen/icon_size_small"
+        android:layout_height="@dimen/icon_size_small"
+        android:src="@drawable/ic_add_point"
+        android:layout_marginEnd="@dimen/spacing_tiny"
+        app:layout_constraintEnd_toEndOf="@+id/btnTest"
+        app:layout_constraintTop_toTopOf="@id/btnTest"
+        app:layout_constraintBottom_toBottomOf="@id/btnTest"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

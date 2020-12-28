@@ -39,7 +39,6 @@ class VocaTestActivity : AppCompatActivity() {
         showTest()
 
         ivBack.setOnClickListener {
-            FirebaseDatabase.getInstance().reference.child("users").child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(UserManager.getMyPoint(this))
             finish()
         }
         ivSkip.setOnClickListener {
@@ -48,22 +47,23 @@ class VocaTestActivity : AppCompatActivity() {
 
         ivSpeaker.setOnClickListener {
             MediaPlayer.create(
-                    this,
-                    resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
+                this,
+                resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
             ).start()
         }
 
         btnCheck.setOnClickListener {
             AnswerTestDialog(
-                    this,
-                    tvEnResult.text.toString().equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
-                    currentVoca.englishWordItem,
-                    object : AnswerTestDialog.VoCaAnswerTestDialogListener {
-                        override fun onBtnNext() {
-                            showTest()
-                        }
+                this,
+                tvEnResult.text.toString()
+                    .equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
+                currentVoca.englishWordItem,
+                object : AnswerTestDialog.VoCaAnswerTestDialogListener {
+                    override fun onBtnNext() {
+                        showTest()
+                    }
 
-                    }).show()
+                }).show()
         }
     }
 
@@ -114,6 +114,16 @@ class VocaTestActivity : AppCompatActivity() {
             listChar.shuffle()
             adapterVocaTest.setData(listChar)
             pbCountNumber.progress = totalItem - listVocabularyItem.size
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (Firebase.auth.currentUser?.isAnonymous != null) {
+            Log.d("TRIEUVD", "${UserManager.getMyPoint(this)}")
+            FirebaseDatabase.getInstance().reference.child("users")
+                .child(Firebase.auth.currentUser?.uid!!).child("myPoint")
+                .setValue(UserManager.getMyPoint(this))
         }
     }
 }

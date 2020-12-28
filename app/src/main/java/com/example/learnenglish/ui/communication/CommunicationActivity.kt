@@ -6,12 +6,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.CommunicationDatabase
 import com.example.learnenglish.model.Communication
 import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.communication.commtest.CommTestActivity
+import com.example.learnenglish.utils.extension.isLogin
 import com.example.learnenglish.widgets.VoiceDialog
 import kotlinx.android.synthetic.main.activity_communication.*
 import kotlinx.android.synthetic.main.include_toolbar.*
@@ -45,6 +47,10 @@ class CommunicationActivity : BaseActivity(), View.OnClickListener,  EasyPermiss
             layoutManager = LinearLayoutManager(context)
             adapter = adapterCommunication
         }
+
+        tvNumberPoint.isVisible = !isLogin()
+        ivAddPoint.isVisible = !isLogin()
+        tvNumberPoint.text = "+${listComm?.size.toString()}"
 
         adapterCommunication.setListener(object : CommunicationAdapter.CommunicationAdapterListener {
             override fun onMicItemClick(comm: Communication) {

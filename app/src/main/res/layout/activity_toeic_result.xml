@@ -2,12 +2,43 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_test_result" />
 
     <TextView
-        android:id="@+id/tvScore"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="my scrore: 12"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Điểm của bạn"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:textColor="@color/blue_light"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_large"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_huge"
+        android:text="550 / 990"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:textStyle="bold"
+        android:textColor="@color/yellow_bright"/>
+
+    <TextView
+        android:id="@+id/tvAddPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bạn được cộng thêm %d point"
+        android:textColor="@color/orange_bright"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:textStyle="bold"
+        android:textSize="@dimen/font_normal"/>
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.learnenglish.ui.vocabulary.item
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyDatabase
@@ -11,6 +12,9 @@ import com.example.learnenglish.model.VocabularyItem
 import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.vocabulary.flashcard.FlashCardActivity
 import com.example.learnenglish.ui.vocabulary.vocatest.VocaTestActivity
+import com.example.learnenglish.utils.extension.isLogin
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_voca_item.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
@@ -41,6 +45,9 @@ class VocaItemActivity : BaseActivity() {
                 putExtra("VOCA_ITEM_FLASH_CARD", vocabulary?.idVocabulary)
             })
         }
+
+        tvNumberPoint.isVisible = !isLogin()
+        ivAddPoint.isVisible = !isLogin()
 
         vocabularyItemDatabase = VocabularyItemDatabase(this)
         vocabularyDatabase = VocabularyDatabase(this)

@@ -10,6 +10,8 @@ import android.view.WindowManager
 import androidx.core.view.isVisible
 import com.example.learnenglish.R
 import com.example.learnenglish.database.UserManager
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.dialog_answer_test.*
 
 class AnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: String, val listener: VoCaAnswerTestDialogListener) : Dialog(context) {
@@ -38,7 +40,10 @@ class AnswerTestDialog(context: Context, var isCorrect: Boolean, var answer: Str
 
         when (isCorrect) {
             true -> {
-                UserManager.setMyPoint(context, UserManager.getMyPoint(context) + 1)
+                if (Firebase.auth.currentUser?.isAnonymous != null) {
+                    UserManager.setMyPoint(context, UserManager.getMyPoint(context) + 1)
+                    tvAddPoint.isVisible = true
+                }
                 llCorrect.isVisible = true
                 llIncorrect.isVisible = false
             }

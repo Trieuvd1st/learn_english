@@ -31,11 +31,13 @@
             android:text="Chính xác"/>
 
         <TextView
+            android:id="@+id/tvAddPoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bạn được  +1 point"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:visibility="gone"
             android:textSize="@dimen/font_normal"/>
 
     </LinearLayout>

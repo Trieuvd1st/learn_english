@@ -13,6 +13,7 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.database.VocabularyDatabase
 import com.example.learnenglish.model.Vocabulary
+import com.example.learnenglish.ui.authentication.signin.SignInActivity
 import com.example.learnenglish.ui.vocabulary.item.VocaItemActivity
 import com.example.learnenglish.widgets.MinusPointDialog
 import com.example.learnenglish.widgets.MyPointNotEnoughDialog
@@ -30,7 +31,11 @@ class VocabularyFragment : Fragment() {
     var vocabularyDatabase: VocabularyDatabase? = null
     private lateinit var viewModel: VocalbularyViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_vocabulary, container, false)
     }
 
@@ -44,27 +49,42 @@ class VocabularyFragment : Fragment() {
         vocabularyArrayList = ArrayList()
         vocabularyDatabase = VocabularyDatabase(context)
         vocabularyArrayList = vocabularyDatabase!!.listVocabulary
-        vocabularyAdapter = VocabularyAdapter(context, vocabularyArrayList, R.layout.item_voca_topic)
+        vocabularyAdapter =
+            VocabularyAdapter(context, vocabularyArrayList, R.layout.item_voca_topic)
         gridview.adapter = vocabularyAdapter
         gridview.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
         gridview.isVerticalScrollBarEnabled = false
         vocabularyAdapter!!.setListener { pos ->
             if (vocabularyArrayList?.get(pos)?.pointRequired!! > 0) {
-                MinusPointDialog(context!!, vocabularyArrayList?.get(pos)?.pointRequired!!, UserManager.getMyPoint(context!!), object : MinusPointDialog.MinusDialogListener {
-                    override fun onOk() {
-                        if (UserManager.getMyPoint(context!!) - POINT_REQUIRED >= 0) {
-                            vocabularyArrayList?.get(pos)?.pointRequired = 0
-                            updatePointMinus(vocabularyArrayList?.get(pos)!!, UserManager.getMyPoint(context!!) - POINT_REQUIRED)
-                        } else {
-                            MyPointNotEnoughDialog(context!!).show()
-                        }
-                    }
+                if (Firebase.auth.currentUser?.isAnonymous == null) {
+                    startActivity(Intent(context!!, SignInActivity::class.java))
+                } else {
+                    MinusPointDialog(
+                        context!!,
+                        vocabularyArrayList?.get(pos)?.pointRequired!!,
+                        UserManager.getMyPoint(context!!),
+                        object : MinusPointDialog.MinusDialogListener {
+                            override fun onOk() {
+                                if (UserManager.getMyPoint(context!!) - POINT_REQUIRED >= 0) {
+                                    vocabularyArrayList?.get(pos)?.pointRequired = 0
+                                    updatePointMinus(
+                                        vocabularyArrayList?.get(pos)!!,
+                                        UserManager.getMyPoint(context!!) - POINT_REQUIRED
+                                    )
+                                } else {
+                                    MyPointNotEnoughDialog(context!!).show()
+                                }
+                            }
 
-                }).show()
+                        }).show()
+                }
             } else {
                 val intent = Intent(activity, VocaItemActivity::class.java)
                 intent.putExtra("position", vocabularyArrayList?.get(pos))
-                intent.putExtra("vocabulary_title", vocabularyArrayList?.get(pos)?.enTopicVocabulary)
+                intent.putExtra(
+                    "vocabulary_title",
+                    vocabularyArrayList?.get(pos)?.enTopicVocabulary
+                )
                 startActivity(intent)
             }
         }
@@ -72,7 +92,8 @@ class VocabularyFragment : Fragment() {
 
     private fun updatePointMinus(vocabulary: Vocabulary, pointRemain: Int) {
         UserManager.setMyPoint(context!!, UserManager.getMyPoint(context!!) - 50)
-        FirebaseDatabase.getInstance().reference.child("users").child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(pointRemain.toLong())
+        FirebaseDatabase.getInstance().reference.child("users")
+            .child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(pointRemain.toLong())
         vocabularyDatabase?.updatePointById(vocabulary)
         vocabularyAdapter?.notifyDataSetChanged()
         viewModel.downloadItemVoca(context!!, 8)

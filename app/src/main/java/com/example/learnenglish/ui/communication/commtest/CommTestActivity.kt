@@ -10,7 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
+import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.widgets.AnswerTestDialog
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_comm_test.*
 import kotlin.random.Random
 
@@ -123,6 +127,15 @@ class CommTestActivity : AppCompatActivity(), View.OnClickListener, AnswerTestDi
     override fun onBtnNext() {
         viewModelCommTest.getRandomMutileChoice(this)
         //setRandomLayout()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (Firebase.auth.currentUser?.isAnonymous != null) {
+            FirebaseDatabase.getInstance().reference.child("users")
+                .child(Firebase.auth.currentUser?.uid!!).child("myPoint")
+                .setValue(UserManager.getMyPoint(this))
+        }
     }
 
     companion object {
