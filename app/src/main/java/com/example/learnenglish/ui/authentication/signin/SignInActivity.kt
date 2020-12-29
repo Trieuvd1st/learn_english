@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
+import com.example.learnenglish.ui.authentication.profile.ProfileActivity
 import com.example.learnenglish.ui.authentication.signup.SignUpActivity
 import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.communication.commtest.CommTestViewModel
@@ -38,7 +39,10 @@ class SignInActivity: BaseActivity() {
     private fun initViewModel() {
         viewmodel = ViewModelProviders.of(this).get(SignInViewModel::class.java).apply {
             loginState.observe(this@SignInActivity, Observer { state ->
-                if (state) finish()
+                if (state) {
+                    startActivity(Intent(this@SignInActivity, ProfileActivity::class.java))
+                    finish()
+                }
             })
             messageError.observe(this@SignInActivity, Observer { msg ->
                 Toast.makeText(this@SignInActivity, msg, Toast.LENGTH_SHORT).show()

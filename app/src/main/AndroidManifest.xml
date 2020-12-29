@@ -93,6 +93,9 @@
 
         <activity android:name=".ui.authentication.signup.SignUpActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.authentication.profile.ProfileActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

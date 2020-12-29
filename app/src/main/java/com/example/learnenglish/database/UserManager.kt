@@ -17,4 +17,8 @@ object UserManager {
     }
 
     fun getMyPoint(context: Context): Int = getPrefs(context).getInt(MY_POINT, 0)
+
+    fun clearData(context: Context) {
+        getPrefs(context).edit { clear() }
+    }
 }

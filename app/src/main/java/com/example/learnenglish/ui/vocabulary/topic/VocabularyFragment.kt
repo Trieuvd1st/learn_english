@@ -96,7 +96,7 @@ class VocabularyFragment : Fragment() {
             .child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(pointRemain.toLong())
         vocabularyDatabase?.updatePointById(vocabulary)
         vocabularyAdapter?.notifyDataSetChanged()
-        viewModel.downloadItemVoca(context!!, 8)
+        //viewModel.downloadItemVoca(context!!, 8)
     }
 
     companion object {

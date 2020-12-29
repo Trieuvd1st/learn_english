@@ -9,12 +9,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyDatabase
+import com.example.learnenglish.ui.authentication.profile.ProfileActivity
 import com.example.learnenglish.ui.authentication.signin.SignInActivity
 import com.example.learnenglish.ui.communication.CommunicationTopicActivity
 import com.example.learnenglish.ui.grammar.GrammarTopicActivity
 import com.example.learnenglish.ui.practice.PracticeTopicActivity
 import com.example.learnenglish.ui.translate.TranslateActivity
 import com.example.learnenglish.ui.vocabulary.topic.VocabularyActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import java.io.File
@@ -39,9 +42,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (!database.exists()) {
             vocabularyDatabase.readableDatabase
             if (vocabularyDatabase.copyDatabase(this)) {
-                Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Copy data error", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "Copy data error", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -84,7 +87,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.action_login -> {
-                startActivity(Intent(this, SignInActivity::class.java))
+                if (Firebase.auth.currentUser?.isAnonymous == null) {
+                    startActivity(Intent(this, SignInActivity::class.java))
+                } else {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                }
                 return true
             }
         }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_tiny">
+
+        <TextView
+            android:id="@+id/tvMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ductrieu98htrung@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_normal"
+            android:drawableLeft="@drawable/ic_mail"
+            android:drawablePadding="@dimen/spacing_tiny"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_micro"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_tiny"
+                android:layout_height="@dimen/icon_size_tiny"
+                android:src="@drawable/ic_add_point"/>
+
+            <TextView
+                android:id="@+id/tvMyPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/spacing_tiny"
+                android:textColor="@color/blue_light"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:text="Đăng xuất"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal"
+        android:padding="@dimen/spacing_tiny"
+        android:drawableLeft="@drawable/ic_sign_out"
+        android:drawablePadding="@dimen/spacing_tiny"/>
+
+</LinearLayout>
