@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <include layout="@layout/include_toolbar" />
@@ -241,49 +242,83 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/llJob"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1">
+
 
             <ImageView
+                android:id="@+id/icJob"
                 android:layout_width="@dimen/icon_size_large"
                 android:layout_height="@dimen/icon_size_large"
-                android:src="@drawable/ic_job" />
-
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_job"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.539"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvJob"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Việc làm"
-                android:textColor="#000000" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llHealth"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+                android:textColor="#000000"
+                app:layout_constraintTop_toBottomOf="@id/icJob"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <ImageView
+                android:layout_width="@dimen/icon_size_small"
+                android:layout_height="@dimen/icon_size_small"
+                android:src="@drawable/ic_add_point"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llHeath"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/icHealth"
                 android:layout_width="@dimen/icon_size_large"
                 android:layout_height="@dimen/icon_size_large"
-                android:src="@drawable/ic_health" />
-
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_health"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.539"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvHealth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sức Khỏe"
-                android:textColor="#000000" />
+                android:text="Sức khỏe"
+                android:textColor="#000000"
+                app:layout_constraintTop_toBottomOf="@id/icHealth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/icon_size_small"
+                android:layout_height="@dimen/icon_size_small"
+                android:src="@drawable/ic_add_point"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/llComm"
@@ -338,27 +373,44 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/llHouse"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1">
+
 
             <ImageView
+                android:id="@+id/icHouse"
                 android:layout_width="@dimen/icon_size_large"
                 android:layout_height="@dimen/icon_size_large"
-                android:src="@drawable/ic_house" />
-
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_house"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.539"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvHouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nhà ở"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                app:layout_constraintTop_toBottomOf="@id/icHouse"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/icon_size_small"
+                android:layout_height="@dimen/icon_size_small"
+                android:src="@drawable/ic_add_point"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/llAlways"

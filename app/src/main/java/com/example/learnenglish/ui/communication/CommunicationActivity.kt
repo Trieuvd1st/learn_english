@@ -1,6 +1,7 @@
 package com.example.learnenglish.ui.communication
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -25,6 +26,7 @@ class CommunicationActivity : BaseActivity(), View.OnClickListener,  EasyPermiss
     private lateinit var commDatabase: CommunicationDatabase
     private var listComm: ArrayList<Communication>? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_communication)

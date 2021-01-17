@@ -10,7 +10,7 @@
         android:id="@+id/tvAlertPointRequired"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bạn có muốn sử dụng %d point để học phần này ?"
+        android:text="Bạn có muốn sử dụng %d point để học chủ đề này ?"
         android:textColor="@color/black"
         android:gravity="center_horizontal"
         android:textSize="@dimen/font_normal"/>

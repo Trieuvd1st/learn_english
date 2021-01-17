@@ -6,7 +6,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.learnenglish.database.GrammarDatabase
 import com.example.learnenglish.database.UserManager
+import com.example.learnenglish.database.VocabularyDatabase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserInfo
 import com.google.firebase.auth.ktx.auth
@@ -22,6 +24,9 @@ class SignInViewModel: ViewModel() {
     var loginState = MutableLiveData<Boolean>()
     var messageError = MutableLiveData<String>()
     var isShowLoading = MutableLiveData<Boolean>()
+    var vocabularyDatabase: VocabularyDatabase? = null
+    var grammarDatabase: GrammarDatabase? = null
+    var isGetData: Boolean = false
 
     fun signIn(activity: Activity, email: String, password: String) {
         isShowLoading.value = true
@@ -48,6 +53,33 @@ class SignInViewModel: ViewModel() {
             override fun onCancelled(error: DatabaseError) {  }
 
         })
+    }
 
+    fun checkUnlockTopic(context: Context) {
+        isGetData = true
+        vocabularyDatabase = VocabularyDatabase(context)
+        grammarDatabase = GrammarDatabase(context)
+        //unlock vocatopic
+        FirebaseDatabase.getInstance().reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (isGetData) {
+                    for (item in snapshot.child("vocabulary_unlock").children) {
+                        if (item.child("userId").value == Firebase.auth.currentUser?.uid!!) {
+                            vocabularyDatabase?.updatePointById((item.child("topicId").value as Long).toInt())
+                        }
+                    }
+
+                    for (item in snapshot.child("grammar_unlock").children) {
+                        if (item.child("userId").value == Firebase.auth.currentUser?.uid!!) {
+                            grammarDatabase?.updatePointById((item.child("topicId").value as Long).toInt())
+                        }
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 }

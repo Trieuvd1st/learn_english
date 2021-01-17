@@ -1,8 +1,10 @@
 package com.example.learnenglish.database
 
+import android.content.ContentValues
 import android.content.Context
 import com.example.learnenglish.model.Exercise
 import com.example.learnenglish.model.Grammar
+import com.example.learnenglish.model.Vocabulary
 
 class GrammarDatabase(context: Context?) : DBHelper(context) {
     private val context: Context? = null
@@ -15,7 +17,11 @@ class GrammarDatabase(context: Context?) : DBHelper(context) {
         val cursor = db.getDataFromSQLite("SELECT * FROM Grammar")
         cursor.moveToFirst()
         while (!cursor.isAfterLast) {
-            grammar = Grammar(cursor.getInt(0), cursor.getString(1), cursor.getString(2))
+            grammar = Grammar(
+                cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getInt(
+                    3
+                )
+            )
             grammarArrayList.add(grammar)
             cursor.moveToNext()
         }
@@ -47,5 +53,13 @@ class GrammarDatabase(context: Context?) : DBHelper(context) {
         cursor.close()
         db.closeDatabase()
         return exerciseArrayList as ArrayList<Exercise>
+    }
+
+    fun updatePointById(id: Int) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put("PointRequired", 0)
+        db.update("Grammar", values, "Id = ?", arrayOf(id.toString()))
+        db.close()
     }
 }

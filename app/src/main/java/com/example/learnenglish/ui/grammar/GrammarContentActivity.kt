@@ -21,8 +21,8 @@ class GrammarContentActivity : BaseActivity() {
         val grammar: Grammar = intent.getSerializableExtra(GRAMMAR_EXTRA) as Grammar
         setTitleActionBar(toolbar, grammar.topic)
 
-        tvContent.text = DisplayUtils.fromHtml(grammar.detailContent)
-        Log.d("GRAMMAR_CONTENT", grammar.detailContent)
+        tvContent.text = DisplayUtils.fromHtml(grammar.detailContent ?: "")
+        Log.d("GRAMMAR_CONTENT", grammar.detailContent ?: "")
     }
 
     companion object {

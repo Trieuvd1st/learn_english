@@ -50,11 +50,11 @@ public class VocabularyDatabase extends DBHelper{
         return vocabulary;
     }
 
-    public void updatePointById(Vocabulary vocabulary) {
+    public void updatePointById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("PointRequired", 0);
-        db.update("Chude", values, "Id = ?", new String[] { String.valueOf(vocabulary.getIdVocabulary()) });
+        db.update("Chude", values, "Id = ?", new String[] { String.valueOf(id) });
         db.close();
     }
 }

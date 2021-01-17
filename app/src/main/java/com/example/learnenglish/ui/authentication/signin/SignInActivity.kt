@@ -40,6 +40,7 @@ class SignInActivity: BaseActivity() {
         viewmodel = ViewModelProviders.of(this).get(SignInViewModel::class.java).apply {
             loginState.observe(this@SignInActivity, Observer { state ->
                 if (state) {
+                    viewmodel.checkUnlockTopic(this@SignInActivity)
                     startActivity(Intent(this@SignInActivity, ProfileActivity::class.java))
                     finish()
                 }
@@ -52,5 +53,10 @@ class SignInActivity: BaseActivity() {
                 showOrHideProgressDialog(state)
             })
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewmodel.isGetData = false
     }
 }

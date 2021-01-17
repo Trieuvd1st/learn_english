@@ -46,6 +46,8 @@ class VocabularyFragment : Fragment() {
 
         }
 
+        viewModel.downloadItemVoca(context!!, 8)
+
         vocabularyArrayList = ArrayList()
         vocabularyDatabase = VocabularyDatabase(context)
         vocabularyArrayList = vocabularyDatabase!!.listVocabulary
@@ -71,6 +73,7 @@ class VocabularyFragment : Fragment() {
                                         vocabularyArrayList?.get(pos)!!,
                                         UserManager.getMyPoint(context!!) - POINT_REQUIRED
                                     )
+                                    viewModel.unlockTopic(vocabularyArrayList?.get(pos)!!.idVocabulary)
                                 } else {
                                     MyPointNotEnoughDialog(context!!).show()
                                 }
@@ -94,7 +97,7 @@ class VocabularyFragment : Fragment() {
         UserManager.setMyPoint(context!!, UserManager.getMyPoint(context!!) - 50)
         FirebaseDatabase.getInstance().reference.child("users")
             .child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(pointRemain.toLong())
-        vocabularyDatabase?.updatePointById(vocabulary)
+        vocabularyDatabase?.updatePointById(vocabulary.idVocabulary)
         vocabularyAdapter?.notifyDataSetChanged()
         //viewModel.downloadItemVoca(context!!, 8)
     }
