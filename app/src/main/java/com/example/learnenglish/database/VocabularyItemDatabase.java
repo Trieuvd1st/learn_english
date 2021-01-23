@@ -3,7 +3,7 @@ package com.example.learnenglish.database;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.example.learnenglish.model.VocabularyItem;
+import com.example.learnenglish.model.Vocabulary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +31,15 @@ public class VocabularyItemDatabase extends DBHelper {
 //        database.closeDatabase();
 //        return itemList;
 //    }
-    public List<VocabularyItem> getListVocabularyItem(int idchude) {
-        VocabularyItem vocabularyItem = null;
-        List<VocabularyItem> itemList = new ArrayList<>();
+    public List<Vocabulary> getListVocabularyItem(int topicId) {
+        Vocabulary vocabulary = null;
+        List<Vocabulary> itemList = new ArrayList<>();
         VocabularyItemDatabase database = new VocabularyItemDatabase(context);
         database.openDatabase();
-        Cursor cursor = database.getDataFromSQLite("SELECT * FROM Itemchude WHERE Idchude = '" + idchude + "'");
+        Cursor cursor = database.getDataFromSQLite("SELECT * FROM Vocabulary WHERE TopicId = '" + topicId + "'");
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            vocabularyItem = new VocabularyItem(
+            vocabulary = new Vocabulary(
                     cursor.getInt(0),
                     cursor.getInt(1),
                     cursor.getString(2),
@@ -49,7 +49,7 @@ public class VocabularyItemDatabase extends DBHelper {
                     cursor.getString(6),
                     cursor.getString(7)
             );
-            itemList.add(vocabularyItem);
+            itemList.add(vocabulary);
             cursor.moveToNext();
         }
         cursor.close();

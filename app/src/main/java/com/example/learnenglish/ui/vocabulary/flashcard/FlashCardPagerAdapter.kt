@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.model.Vocabulary
 
-class FlashCardPagerAdapter(fm: FragmentManager, val listVocabularyItem: List<VocabularyItem>) : FragmentStatePagerAdapter(fm) {
+class FlashCardPagerAdapter(fm: FragmentManager, val listVocabularyItem: List<Vocabulary>) : FragmentStatePagerAdapter(fm) {
 
     override fun getCount(): Int {
         return listVocabularyItem.size

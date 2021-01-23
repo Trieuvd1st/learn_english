@@ -5,19 +5,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/gridview"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVocaTopic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:horizontalSpacing="15dp"
         android:numColumns="2"
         android:padding="5dp"
-        android:verticalSpacing="15dp" />
+        android:verticalSpacing="15dp"/>
 
 </LinearLayout>

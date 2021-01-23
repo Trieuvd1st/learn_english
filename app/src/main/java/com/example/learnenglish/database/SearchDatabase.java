@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
-import com.example.learnenglish.model.VocabularyItem;
+import com.example.learnenglish.model.Vocabulary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,27 +17,27 @@ public class SearchDatabase extends DBHelper {
         super(context);
     }
 
-    public List<VocabularyItem> getVocabularyItemByName(String name) {
+    public List<Vocabulary> getVocabularyItemByName(String name) {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String[] sqlSelect = {"Id", "Tutienganh", "Tutiengviet", "Anh", "Sound", "Spell", "Example"};
-        String tableName = "Itemchude";
+        String[] sqlSelect = {"Id", "EnWord", "ViWord", "ImageId", "SoundId", "Spell", "Example"};
+        String tableName = "Vocabulary";
         qb.setTables(tableName);
-        Cursor cursor = qb.query(db, sqlSelect, "Tutienganh LIKE ?", new String[]{"%" + name + "%"},
+        Cursor cursor = qb.query(db, sqlSelect, "EnWord LIKE ?", new String[]{"%" + name + "%"},
                 null, null, null);
-        List<VocabularyItem> result = new ArrayList<>();
+        List<Vocabulary> result = new ArrayList<>();
         if (cursor.moveToFirst()) {
             do {
-                VocabularyItem vocabularyItem = new VocabularyItem();
-                vocabularyItem.setIdItem(cursor.getInt(cursor.getColumnIndex("Id")));
-                vocabularyItem.setEnglishWordItem(cursor.getString(cursor.getColumnIndex("Tutienganh")));
-                vocabularyItem.setVietnameseWordItem(cursor.getString(cursor.getColumnIndex("Tutiengviet")));
-                vocabularyItem.setImageItem(cursor.getString(cursor.getColumnIndex("Anh")));
-                vocabularyItem.setSoundItem(cursor.getString(cursor.getColumnIndex("Sound")));
-                vocabularyItem.setSpell(cursor.getString(cursor.getColumnIndex("Spell")));
-                vocabularyItem.setExample(cursor.getString(cursor.getColumnIndex("Example")));
-                result.add(vocabularyItem);
+                Vocabulary vocabulary = new Vocabulary();
+                vocabulary.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                vocabulary.setEnWord(cursor.getString(cursor.getColumnIndex("EnWord")));
+                vocabulary.setViWord(cursor.getString(cursor.getColumnIndex("ViWord")));
+                vocabulary.setImageId(cursor.getString(cursor.getColumnIndex("ImageId")));
+                vocabulary.setSoundId(cursor.getString(cursor.getColumnIndex("SoundId")));
+                vocabulary.setSpell(cursor.getString(cursor.getColumnIndex("Spell")));
+                vocabulary.setExample(cursor.getString(cursor.getColumnIndex("Example")));
+                result.add(vocabulary);
             } while (cursor.moveToNext());
         }
 

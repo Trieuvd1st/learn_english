@@ -31,7 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Vui lòng nhập email hoặc số điện thoại"
-        android:text="ductrieu98htrung@gmail.com"
         android:imeOptions="actionNext"
         android:inputType="textEmailAddress" />
 
@@ -49,7 +48,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="*********"
-        android:text="morhn123"
         android:imeOptions="actionDone"
         android:inputType="textPassword" />
 

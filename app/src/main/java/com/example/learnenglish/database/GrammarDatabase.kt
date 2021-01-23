@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import com.example.learnenglish.model.Exercise
 import com.example.learnenglish.model.Grammar
-import com.example.learnenglish.model.Vocabulary
 
 class GrammarDatabase(context: Context?) : DBHelper(context) {
     private val context: Context? = null

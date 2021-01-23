@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.learnenglish.R
-import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.utils.DisplayUtils
 import kotlinx.android.synthetic.main.fragment_flash_card_item.*
 
 class FlashCardItemFragment : Fragment() {
 
-    private lateinit var vocabularyItem: VocabularyItem
+    private lateinit var vocabularyItem: Vocabulary
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_flash_card_item, container, false)
@@ -29,9 +29,9 @@ class FlashCardItemFragment : Fragment() {
             tvExample.isVisible = true
         }
 
-        vocabularyItem = arguments?.getSerializable(EXTRA_VOCABULARY_ITEM) as VocabularyItem
-        tvEn.text = vocabularyItem.englishWordItem
-        tvVi.text = vocabularyItem.vietnameseWordItem
+        vocabularyItem = arguments?.getSerializable(EXTRA_VOCABULARY_ITEM) as Vocabulary
+        tvEn.text = vocabularyItem.enWord
+        tvVi.text = vocabularyItem.viWord
         vocabularyItem.spell?.let {
             tvSpell.text = it
         }
@@ -40,7 +40,7 @@ class FlashCardItemFragment : Fragment() {
         }
 
         btnSpeaker.setOnClickListener {
-            MediaPlayer.create(context, resources.getIdentifier(vocabularyItem.soundItem, "raw", context?.packageName)).start()
+            MediaPlayer.create(context, resources.getIdentifier(vocabularyItem.soundId, "raw", context?.packageName)).start()
         }
     }
 

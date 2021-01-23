@@ -7,14 +7,14 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.VocabularyItemDatabase
-import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_flash_card.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 class FlashCardActivity : BaseActivity() {
 
-    private var listVocabularyItem = mutableListOf<VocabularyItem>()
+    private var listVocabularyItem = mutableListOf<Vocabulary>()
     private var totalItem = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

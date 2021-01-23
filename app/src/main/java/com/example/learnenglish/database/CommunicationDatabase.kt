@@ -20,7 +20,6 @@ class CommunicationDatabase(context: Context?) : DBHelper(context) {
                 enSentence = cursor.getString(2)
                 viSentence = cursor.getString(3)
                 nameSound = cursor.getString(4)
-                isSelected = convertSelection(cursor.getInt(5))
             }
             commArrayList.add(comm)
             cursor.moveToNext()
@@ -44,7 +43,6 @@ class CommunicationDatabase(context: Context?) : DBHelper(context) {
                 enSentence = cursor.getString(2)
                 viSentence = cursor.getString(3)
                 nameSound = cursor.getString(4)
-                isSelected = convertSelection(cursor.getInt(5))
             }
             commArrayList.add(comm)
             cursor.moveToNext()

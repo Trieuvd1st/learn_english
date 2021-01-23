@@ -7,7 +7,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learnenglish.R
 import com.example.learnenglish.model.Grammar
-import com.example.learnenglish.ui.vocabulary.topic.VocabularyAdapter.VocabularyAdapterListener
 import kotlinx.android.synthetic.main.item_grammar.view.*
 
 class GrammarAdapter(private var listGrammar: MutableList<Grammar>) :

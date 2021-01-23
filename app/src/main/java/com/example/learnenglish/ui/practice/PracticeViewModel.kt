@@ -1,9 +1,8 @@
 package com.example.learnenglish.ui.practice
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.learnenglish.model.*
+import com.example.learnenglish.model.practice.*
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference

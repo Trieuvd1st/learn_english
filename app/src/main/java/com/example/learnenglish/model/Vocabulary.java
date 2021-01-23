@@ -3,57 +3,90 @@ package com.example.learnenglish.model;
 import java.io.Serializable;
 
 public class Vocabulary implements Serializable {
-    private int idVocabulary;
-    private String enTopicVocabulary;
-    private String viTopicVoCabulary;
-    private String imageVocabulary;
-    private int pointRequired;
+    private int id;
+    private int topicId;
+    private String enWord;
+    private String viWord;
+    private String imageId;
+    private String soundId;
+    private String spell;
+    private String example;
 
-    public Vocabulary(int idVocabulary, String enTopicVocabulary, String viTopicVoCabulary, String imageVocabulary, int pointRequired) {
-        this.idVocabulary = idVocabulary;
-        this.enTopicVocabulary = enTopicVocabulary;
-        this.viTopicVoCabulary = viTopicVoCabulary;
-        this.imageVocabulary = imageVocabulary;
-        this.pointRequired = pointRequired;
+    public Vocabulary() {
     }
 
-    public int getIdVocabulary() {
-        return idVocabulary;
+    public Vocabulary(int id, int topicId, String enWord, String viWord, String imageId, String soundId, String spell, String example) {
+        this.id = id;
+        this.topicId = topicId;
+        this.enWord = enWord;
+        this.viWord = viWord;
+        this.imageId = imageId;
+        this.soundId = soundId;
+        this.spell = spell;
+        this.example = example;
     }
 
-    public void setIdVocabulary(int idVocabulary) {
-        this.idVocabulary = idVocabulary;
+    public int getId() {
+        return id;
     }
 
-    public String getEnTopicVocabulary() {
-        return enTopicVocabulary;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setEnTopicVocabulary(String enTopicVocabulary) {
-        this.enTopicVocabulary = enTopicVocabulary;
+    public int getTopicId() {
+        return topicId;
     }
 
-    public String getViTopicVoCabulary() {
-        return viTopicVoCabulary;
+    public void setTopicId(int topicId) {
+        this.topicId = topicId;
     }
 
-    public void setViTopicVoCabulary(String viTopicVoCabulary) {
-        this.viTopicVoCabulary = viTopicVoCabulary;
+    public String getEnWord() {
+        return enWord;
     }
 
-    public String getImageVocabulary() {
-        return imageVocabulary;
+    public void setEnWord(String enWord) {
+        this.enWord = enWord;
     }
 
-    public void setImageVocabulary(String imageVocabulary) {
-        this.imageVocabulary = imageVocabulary;
+    public String getViWord() {
+        return viWord;
     }
 
-    public int getPointRequired() {
-        return pointRequired;
+    public void setViWord(String viWord) {
+        this.viWord = viWord;
     }
 
-    public void setPointRequired(int pointRequired) {
-        this.pointRequired = pointRequired;
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getSoundId() {
+        return soundId;
+    }
+
+    public void setSoundId(String soundId) {
+        this.soundId = soundId;
+    }
+
+    public String getSpell() {
+        return spell;
+    }
+
+    public void setSpell(String spell) {
+        this.spell = spell;
+    }
+
+    public String getExample() {
+        return example;
+    }
+
+    public void setExample(String example) {
+        this.example = example;
     }
 }

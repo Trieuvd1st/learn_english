@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.database.VocabularyItemDatabase
-import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.model.WordChar
 import com.example.learnenglish.widgets.AnswerTestDialog
 import com.google.firebase.auth.ktx.auth
@@ -20,9 +20,9 @@ class VocaTestActivity : AppCompatActivity() {
 
     private lateinit var adapterVocaTest: VocaTestAdapter
     private var enResult: String = ""
-    private var listVocabularyItem = mutableListOf<VocabularyItem>()
+    private var listVocabularyItem = mutableListOf<Vocabulary>()
     private var totalItem = 0
-    private var currentVoca = VocabularyItem()
+    private var currentVoca = Vocabulary()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class VocaTestActivity : AppCompatActivity() {
         ivSpeaker.setOnClickListener {
             MediaPlayer.create(
                 this,
-                resources.getIdentifier(currentVoca.soundItem, "raw", packageName)
+                resources.getIdentifier(currentVoca.soundId, "raw", packageName)
             ).start()
         }
 
@@ -56,8 +56,8 @@ class VocaTestActivity : AppCompatActivity() {
             AnswerTestDialog(
                 this,
                 tvEnResult.text.toString()
-                    .equals(currentVoca.englishWordItem.toString(), ignoreCase = true),
-                currentVoca.englishWordItem,
+                    .equals(currentVoca.enWord.toString(), ignoreCase = true),
+                currentVoca.enWord,
                 object : AnswerTestDialog.VoCaAnswerTestDialogListener {
                     override fun onBtnNext() {
                         showTest()
@@ -103,8 +103,8 @@ class VocaTestActivity : AppCompatActivity() {
             listVocabularyItem.remove(currentVoca)
 
             val listChar = mutableListOf<WordChar>()
-            tvVi.text = currentVoca.vietnameseWordItem
-            currentVoca.englishWordItem.forEach { it ->
+            tvVi.text = currentVoca.viWord
+            currentVoca.enWord.forEach { it ->
                 listChar.add(WordChar().apply {
                     text = it.toString()
                     isShow = true

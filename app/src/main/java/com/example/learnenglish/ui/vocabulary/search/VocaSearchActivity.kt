@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.learnenglish.R
 import com.example.learnenglish.database.SearchDatabase
-import com.example.learnenglish.model.VocabularyItem
+import com.example.learnenglish.model.Vocabulary
 import kotlinx.android.synthetic.main.activity_voca_search.*
 import java.util.*
 
@@ -15,7 +15,7 @@ class VocaSearchActivity : AppCompatActivity() {
 
     private lateinit var adapterSearch: SearchAdapter
     private lateinit var searchDatabase: SearchDatabase
-    private var itemList = ArrayList<VocabularyItem>()
+    private var itemList = ArrayList<Vocabulary>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +39,9 @@ class VocaSearchActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 itemList = if (newText == "") {
-                    ArrayList<VocabularyItem>()
+                    ArrayList<Vocabulary>()
                 } else {
-                    searchDatabase.getVocabularyItemByName(svVoca.query.toString()) as ArrayList<VocabularyItem>
+                    searchDatabase.getVocabularyItemByName(svVoca.query.toString()) as ArrayList<Vocabulary>
                 }
                 adapterSearch.setData(itemList)
                 return false

@@ -10,13 +10,9 @@ import com.example.learnenglish.R
 import com.example.learnenglish.database.GrammarDatabase
 import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.model.Grammar
-import com.example.learnenglish.model.Vocabulary
 import com.example.learnenglish.ui.authentication.signin.SignInActivity
 import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.grammar.exercise.ExerciseTopicGrammarActivity
-import com.example.learnenglish.ui.vocabulary.item.VocaItemActivity
-import com.example.learnenglish.ui.vocabulary.topic.VocabularyFragment
-import com.example.learnenglish.ui.vocabulary.topic.VocalbularyViewModel
 import com.example.learnenglish.widgets.MinusPointDialog
 import com.example.learnenglish.widgets.MyPointNotEnoughDialog
 import com.google.firebase.auth.ktx.auth

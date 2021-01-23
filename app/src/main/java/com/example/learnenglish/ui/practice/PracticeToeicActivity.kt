@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.learnenglish.R
 import com.example.learnenglish.model.*
+import com.example.learnenglish.model.practice.*
 import com.example.learnenglish.ui.base.BaseActivity
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -37,6 +38,9 @@ class PracticeToeicActivity : BaseActivity() {
     private var currentScore = 0
     private var myChoiceList = arrayListOf<Int>()
     private lateinit var countDownTimer: CountDownTimer
+
+    private var toeic = Toeic()
+    private var toeicSen = ToeicSen()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +73,8 @@ class PracticeToeicActivity : BaseActivity() {
     }
 
     private fun handleDataResponse(toeicListResponse: ToeicListResponse) {
+        toeic.id = "1"
+        toeicSen.id = "1"
         //toeicListResponse.time?.toInt()!! * 60
         pbCountTime.max = toeicListResponse.time?.toInt()!! * 60
         pbCountTime.progress = toeicListResponse.time?.toInt()!! * 60

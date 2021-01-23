@@ -15,8 +15,6 @@ class Communication : Serializable {
 
     var isExpand: Boolean = false
 
-    var isSelected: Boolean = false
-
     fun convertSelection(value: Int): Boolean {
         return when (value) {
             0 -> false
