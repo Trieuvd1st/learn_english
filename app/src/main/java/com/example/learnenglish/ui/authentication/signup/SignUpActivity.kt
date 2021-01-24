@@ -2,16 +2,20 @@ package com.example.learnenglish.ui.authentication.signup
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.learnenglish.R
 import com.example.learnenglish.database.UserManager
 import com.example.learnenglish.ui.base.BaseActivity
 import com.example.learnenglish.ui.main.MainActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.actionCodeSettings
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_sign_in.btnSignUp
 import kotlinx.android.synthetic.main.activity_sign_up.*
+
 
 class SignUpActivity: BaseActivity() {
 
@@ -30,11 +34,20 @@ class SignUpActivity: BaseActivity() {
             .addOnCompleteListener(this) { task ->
                 showOrHideProgressDialog(false)
                 if (task.isSuccessful) {
-                    FirebaseDatabase.getInstance().reference.child("users").child(Firebase.auth.currentUser?.uid!!).child("myPoint").setValue(200.toLong())
+                    FirebaseDatabase.getInstance().reference.child("users").child(Firebase.auth.currentUser?.uid!!).child(
+                        "myPoint"
+                    ).setValue(200.toLong())
                     UserManager.setMyPoint(this, 200)
                     startActivity(Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     })
+
+                    Firebase.auth.currentUser!!.sendEmailVerification()
+                        .addOnCompleteListener { task2 ->
+                            if (task2.isSuccessful) {
+
+                            }
+                        }
                 } else {
                     Toast.makeText(this, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                 }

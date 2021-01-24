@@ -9,21 +9,13 @@ import com.google.firebase.storage.StorageReference
 
 class PracticeViewModel : ViewModel() {
 
-    private var storageRef: StorageReference =
-        FirebaseStorage.getInstance().reference.child("toeic").child("exam_1")
-    private var myRef: DatabaseReference =
-        FirebaseDatabase.getInstance().reference.child("shorted_toeic_exam").child("exam_1")
-
     val toeicListResponse = MutableLiveData<ToeicListResponse>()
     var toeicList = ToeicListResponse()
     var answerList = arrayListOf<Int>()
     var isShowDialog = MutableLiveData<Boolean>()
 
-    init {
-        getData()
-    }
-
-    private fun getData() {
+    fun getData(exam: String) {
+        val myRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("shorted_toeic_exam").child(exam)
         isShowDialog.value = true
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -58,6 +50,7 @@ class PracticeViewModel : ViewModel() {
                 for (senSnapshot in snapshot.child("Part 4").children) {
                     val part4 = Part4()
                     part4.audio = senSnapshot.child("audio").value.toString()
+                    part4.imagePath = senSnapshot.child("imagePath").value.toString()
                     for (sen2Snapshot in senSnapshot.children) {
                         if (sen2Snapshot.hasChildren()) {
                             part4.listSen?.add(sen2Snapshot.getValue(ToeicSentence::class.java)!!)

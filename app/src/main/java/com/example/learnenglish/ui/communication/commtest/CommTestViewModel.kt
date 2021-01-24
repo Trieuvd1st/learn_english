@@ -16,6 +16,7 @@ class CommTestViewModel : ViewModel() {
     var indexAnswer: Int = -1
     var choicePiked: String = ""
     var totalItem = 0
+    var isSpeaker = false
 
     val listSize = MutableLiveData<Int>()
     val commAnswerData = MutableLiveData<Communication>()

@@ -27,7 +27,6 @@ class PracticeToeicActivity : BaseActivity() {
     private lateinit var viewModelPractice: PracticeViewModel
 
     private val TOEIC = "toeic"
-    private val EXAM = "exam_1"
     private lateinit var storageRef: StorageReference
     private var audio = ""
     private lateinit var player: MediaPlayer
@@ -48,7 +47,9 @@ class PracticeToeicActivity : BaseActivity() {
 
         setTitleActionBar(toolbar,intent.getStringExtra("EXTRA_TITLE_TOEIC_TOPIC")!!)
 
-        storageRef = FirebaseStorage.getInstance().reference.child(TOEIC).child(EXAM)
+        val exam = intent.getStringExtra("TOEIC_EXAM")
+
+        storageRef = FirebaseStorage.getInstance().reference.child(TOEIC).child(exam!!)
         player = MediaPlayer()
         player.setAudioStreamType(AudioManager.STREAM_MUSIC)
 
@@ -62,6 +63,8 @@ class PracticeToeicActivity : BaseActivity() {
                 showOrHideProgressDialog(it)
             })
         }
+
+        viewModelPractice.getData(exam)
 
         ivSpeaker.setOnClickListener {
             playAudio(audio)
@@ -253,6 +256,11 @@ class PracticeToeicActivity : BaseActivity() {
         setViewType(ToeicPartType.PART_4)
         numberOfChoice = 3
         part4.let {
+            if (part4.imagePath == "null") {
+                imagePart.visibility = View.GONE
+            } else {
+                loadImage(it.imagePath!!)
+            }
             audio = it.audio!!
             playAudio(audio)
             it.listSen?.let { that ->
@@ -458,7 +466,7 @@ class PracticeToeicActivity : BaseActivity() {
 
             ToeicPartType.PART_4 -> {
                 ivSpeaker.visibility = View.VISIBLE
-                imagePart.visibility = View.GONE
+                imagePart.visibility = View.VISIBLE
                 tvSentence1.visibility = View.GONE
                 tvSentence2.visibility = View.GONE
                 tvQuestion1.visibility = View.VISIBLE

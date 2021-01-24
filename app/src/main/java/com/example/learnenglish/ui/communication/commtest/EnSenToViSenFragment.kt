@@ -31,6 +31,7 @@ class EnSenToViSenFragment : Fragment() {
 
     private fun onClick() {
         ivSpeaker.setOnClickListener {
+            viewModelCommTest.isSpeaker = true
             viewModelCommTest.getSoundAnswer()
         }
 
@@ -81,9 +82,12 @@ class EnSenToViSenFragment : Fragment() {
             })
 
             soundAnswerData.observe(this@EnSenToViSenFragment, Observer {
-                val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
-                val mediaPlayer = MediaPlayer.create(context, resourceFromName)
-                mediaPlayer.start()
+                if (viewModelCommTest.isSpeaker) {
+                    val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
+                    val mediaPlayer = MediaPlayer.create(context, resourceFromName)
+                    mediaPlayer.start()
+                    viewModelCommTest.isSpeaker = false
+                }
             })
         }
     }

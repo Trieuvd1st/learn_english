@@ -5,4 +5,5 @@ import com.example.learnenglish.model.practice.ToeicSentence
 class Part4 {
     var listSen: MutableList<ToeicSentence>? = mutableListOf()
     var audio: String? = null
+    var imagePath: String? = null
 }

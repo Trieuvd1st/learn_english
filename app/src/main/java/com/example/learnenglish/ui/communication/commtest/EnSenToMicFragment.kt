@@ -2,6 +2,7 @@ package com.example.learnenglish.ui.communication.commtest
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
@@ -16,7 +17,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.learnenglish.R
 import com.example.learnenglish.model.Communication
-import kotlinx.android.synthetic.main.dialog_voice.*
 import kotlinx.android.synthetic.main.fragment_en_sen_to_mic.*
 import java.util.*
 
@@ -37,6 +37,11 @@ class EnSenToMicFragment : Fragment() {
         initViewModel()
 
         setMicOn()
+
+        ivSpeaker.setOnClickListener {
+            viewModelCommTest.isSpeaker = true
+            viewModelCommTest.getSoundAnswer()
+        }
     }
 
     private fun initViewModel() {
@@ -44,6 +49,15 @@ class EnSenToMicFragment : Fragment() {
             commAnswerData.observe(this@EnSenToMicFragment, Observer {
                 tvQuestion.text = it.enSentence
                 currentComm = it
+            })
+
+            soundAnswerData.observe(this@EnSenToMicFragment, Observer {
+                if (viewModelCommTest.isSpeaker) {
+                    val resourceFromName = resources.getIdentifier(it, "raw", context?.packageName)
+                    val mediaPlayer = MediaPlayer.create(context, resourceFromName)
+                    mediaPlayer.start()
+                    viewModelCommTest.isSpeaker = false
+                }
             })
         }
     }
@@ -70,9 +84,8 @@ class EnSenToMicFragment : Fragment() {
             override fun onEndOfSpeech() {}
             override fun onError(i: Int) {}
             override fun onResults(bundle: Bundle) {
-                ivVoice.setImageResource(R.drawable.ic_mic_no_active)
+                ivMic.setImageResource(R.drawable.ic_mic_no_active)
                 val data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                tvResult.visibility = View.VISIBLE
                 Log.d("DETECT_VOICE_TO_TEXT", "${data!![0]}, ${currentComm.enSentence.substring(0, currentComm.enSentence.length - 1)}")
                 result = data[0]
                 viewModelCommTest.setChoicePicked(result)
